@@ -1,59 +1,97 @@
-# Lični sajt
+# Personal website — Dejan Dembicki
 
-Statički lični sajt (HTML + CSS + JS, bez build koraka). Kad pushuješ izmene na GitHub,
-sajt se sam objavljuje na **GitHub Pages**.
+The personal website of Dejan Dembicki, a mechanical technician and CNC operator.
+It covers my work history, projects, hobbies, a few fun facts and contact details.
 
-## Struktura
+**Live site:** https://dejandembicki90-ctrl.github.io/licni-sajt/
+
+- Static site: plain HTML, CSS and JavaScript, with no framework and no build step
+- Works on phones, tablets and desktops (responsive)
+- Light and dark theme (follows the system setting, can be switched manually)
+- Three languages: English, Serbian and German
+- SEO-ready: meta and Open Graph tags, structured data, sitemap, robots.txt
+- Automatically tested and published to GitHub Pages on every push to `main`
+
+Why the project exists and how it was made is described in [PURPOSE.md](PURPOSE.md).
+How the code is organised, and why it is built this way, is described in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
+
+## Project structure
 
 ```
-index.html                   ← sav sadržaj sajta (traži komentare "ZAMENI")
-css/style.css                ← izgled, boje (na vrhu fajla), svetla/tamna tema
-js/main.js                   ← meni na telefonu, tema, animacije
-images/profil.svg            ← placeholder; zameni svojom slikom
-.github/workflows/deploy.yml ← automatsko objavljivanje na GitHub Pages
+site/                    ← everything that gets published
+  index.html             ← page content (English by default)
+  404.html               ← "page not found" page
+  css/                   ← tokens → base → components → sections
+  js/main.js             ← entry point that wires up the modules
+  js/modules/            ← theme, navigation, reveal animation, i18n
+  locales/               ← en.json, sr.json, de.json (translated texts)
+  images/                ← photo, icons, link preview image
+  robots.txt, sitemap.xml
+tests/                   ← automated checks (Node's built-in test runner)
+docs/ARCHITECTURE.md     ← where, how and why
+.github/workflows/       ← test and deploy pipeline
 ```
 
-## 1. Popuni svoje podatke
+## Usage
 
-1. Otvori folder u VS Code-u: `File → Open Folder… → licni-sajt`.
-2. U `index.html` pretraži (`Ctrl+F`) reč **ZAMENI** i upiši svoje podatke:
-   ime, zanimanje, tekst o sebi, poslove, projekte, hobije, zanimljivosti i kontakte.
-3. Stavi svoju sliku u `images/` (npr. `profil.jpg`, kvadratna, ~600×600 px) i u
-   `index.html` promeni `src="images/profil.svg"` u `src="images/profil.jpg"`.
-4. Pregled: dupli klik na `index.html` otvara sajt u browseru
-   (ili ekstenzija **Live Server** u VS Code-u za automatsko osvežavanje).
+### View the site locally
 
-## 2. Jednokratno podešavanje objavljivanja (GitHub Pages)
+The language files are loaded with `fetch`, which browsers block for pages opened
+straight from disk (`file://`). Use a small local web server instead:
 
-1. Instaliraj Git: <https://git-scm.com/download/win> (podrazumevana podešavanja su OK),
-   pa restartuj VS Code.
-2. Napravi nalog na <https://github.com> (ako ga nemaš).
-3. Na GitHub-u napravi novi **public** repozitorijum, npr. `licni-sajt` (prazan, bez README-a).
-4. U terminalu VS Code-a (`Ctrl+ö` / *Terminal → New Terminal*), u ovom folderu:
+- **VS Code:** install the **Live Server** extension, right-click `site/index.html`
+  and choose **Open with Live Server**.
+- **Or, with Node.js installed:** `npx serve site`, then open the address it prints.
 
-   ```bash
-   git init -b main
-   git add .
-   git commit -m "Prva verzija sajta"
-   git remote add origin https://github.com/KORISNICKO-IME/licni-sajt.git
-   git push -u origin main
-   ```
+If you open `index.html` directly, the page still works in English; only language
+switching is unavailable.
 
-   Pri prvom push-u Git će otvoriti prozor za prijavu na GitHub.
-5. Na GitHub-u: repozitorijum → **Settings → Pages → Build and deployment → Source:
-   GitHub Actions**.
-6. U tabu **Actions** sačekaj da workflow „Objavi sajt" pozeleni (~1 min).
-   Sajt je dostupan na: `https://KORISNICKO-IME.github.io/licni-sajt/`
+### Edit the content
 
-## 3. Svaka sledeća izmena
+1. Change the English text in `site/index.html`.
+2. Change the same key in `site/locales/en.json`, `sr.json` and `de.json`.
+   Each translatable element has a `data-i18n="key"` attribute that names its key.
+3. To use a real photo, add it to `site/images/` (square, about 640×640 px)
+   and update the `src` of the hero image.
 
-Izmeni fajlove, pa:
+Places that still hold placeholder content are marked with `EDIT:` comments.
+
+### Run the tests
+
+With [Node.js](https://nodejs.org) 20 or newer:
+
+```bash
+npm test
+```
+
+No packages need to be installed. The same tests run on GitHub for every push.
+
+## Deployment (upload)
+
+Publishing is automatic. The workflow in `.github/workflows/deploy.yml` runs on every push to `main`:
+
+1. **test**: runs `npm test`.
+2. **deploy**: only if the tests passed, uploads the `site/` folder to GitHub Pages.
+
+After about a minute the new version is live. A failing test stops the deploy,
+so a broken version never reaches the public site.
+
+To publish a change:
 
 ```bash
 git add .
-git commit -m "Opis izmene"
+git commit -m "Describe the change"
 git push
 ```
 
-…ili u VS Code-u: panel **Source Control** → upiši poruku → **Commit** → **Sync Changes**.
-Sajt se automatski ažurira za oko minut.
+In VS Code you can do the same from the **Source Control** panel: write a message, **Commit**, then **Sync Changes**.
+
+### One-time setup (already done for this repository)
+
+1. Create a public GitHub repository and push this project to its `main` branch.
+2. In the repository, open **Settings → Pages → Build and deployment**
+   and set **Source** to **GitHub Actions**.
+
+## License
+
+Licensed under the [Apache License 2.0](LICENSE). Copyright 2026 Dejan Dembicki.
