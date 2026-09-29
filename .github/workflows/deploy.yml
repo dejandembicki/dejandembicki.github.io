@@ -1,5 +1,5 @@
-# Automatski objavljuje sajt na GitHub Pages pri svakom push-u na granu "main".
-name: Objavi sajt
+# Publishes the site/ folder to GitHub Pages on every push to "main".
+name: Deploy site
 
 on:
   push:
@@ -26,6 +26,6 @@ jobs:
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: site
       - id: deployment
         uses: actions/deploy-pages@v4
