@@ -14,6 +14,11 @@ export function siteFileExists(relativePath) {
   return existsSync(path.join(SITE_DIR, relativePath));
 }
 
+// Returns a page's markup without HTML comments, so examples in comments are not mistaken for real markup.
+export function readMarkup(relativePath) {
+  return readSiteFile(relativePath).replace(/<!--[\s\S]*?-->/g, '');
+}
+
 export function readLocale(lang) {
   return JSON.parse(readSiteFile(`locales/${lang}.json`));
 }

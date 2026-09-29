@@ -1,10 +1,10 @@
 // Translation checks: every language has every text, and the HTML only uses keys that exist.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { LANGUAGES, readLocale, readSiteFile, decodeEntities, normalizeSpace } from './helpers.mjs';
+import { LANGUAGES, readLocale, readMarkup, decodeEntities, normalizeSpace } from './helpers.mjs';
 import { normalizeLanguage, SUPPORTED_LANGUAGES } from '../site/js/modules/i18n.js';
 
-const html = readSiteFile('index.html');
+const html = readMarkup('index.html');
 const locales = Object.fromEntries(LANGUAGES.map((lang) => [lang, readLocale(lang)]));
 
 const textKeys = [...html.matchAll(/data-i18n="([^"]+)"/g)].map((m) => m[1]);

@@ -1,9 +1,9 @@
 // Structure, links and SEO checks for the published files.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readSiteFile, siteFileExists } from './helpers.mjs';
+import { readMarkup, readSiteFile, siteFileExists } from './helpers.mjs';
 
-const html = readSiteFile('index.html');
+const html = readMarkup('index.html');
 
 test('every local file referenced by index.html exists', () => {
   const references = [...html.matchAll(/(?:href|src)="([^"]+)"/g)]
