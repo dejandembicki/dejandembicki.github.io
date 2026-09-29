@@ -1,0 +1,235 @@
+/* ===================== TEME (boje) ===================== */
+:root {
+  --bg: #fbfaf7;
+  --bg-alt: #f2efe8;
+  --surface: #ffffff;
+  --text: #1c1b19;
+  --muted: #5f5b53;
+  --border: #e3ded3;
+  --accent: #c2410c;
+  --accent-soft: #fde7da;
+  --shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.06);
+  --radius: 14px;
+  --font: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141412;
+    --bg-alt: #1b1a17;
+    --surface: #211f1c;
+    --text: #f1eee8;
+    --muted: #a8a296;
+    --border: #34312b;
+    --accent: #fb923c;
+    --accent-soft: #3a2518;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141412;
+  --bg-alt: #1b1a17;
+  --surface: #211f1c;
+  --text: #f1eee8;
+  --muted: #a8a296;
+  --border: #34312b;
+  --accent: #fb923c;
+  --accent-soft: #3a2518;
+  --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+}
+
+/* ===================== OSNOVA ===================== */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+h1, h2, h3 { line-height: 1.2; margin: 0 0 .5em; }
+h1, h2 { font-family: var(--font-display); letter-spacing: -.01em; }
+p { margin: 0 0 1em; }
+
+.container { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+/* ===================== NAVIGACIJA ===================== */
+.nav {
+  position: sticky; top: 0; z-index: 10;
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+.nav__inner { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+.nav__logo { font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; color: var(--text); }
+.nav__logo span { color: var(--accent); }
+.nav__logo:hover { text-decoration: none; }
+.nav__links { display: flex; gap: 22px; }
+.nav__links a { color: var(--muted); font-size: .95rem; font-weight: 500; }
+.nav__links a:hover { color: var(--text); text-decoration: none; }
+.nav__actions { display: flex; gap: 6px; }
+.icon-btn {
+  display: inline-grid; place-items: center;
+  width: 40px; height: 40px; border-radius: 10px;
+  border: 1px solid transparent; background: transparent; color: var(--text); cursor: pointer;
+}
+.icon-btn:hover { background: var(--bg-alt); border-color: var(--border); }
+.nav__toggle { display: none; }
+
+/* ikona teme: prikaži mesec u svetloj, sunce u tamnoj */
+.ikona-sunce { display: none; }
+:root[data-theme="dark"] .ikona-sunce { display: block; }
+:root[data-theme="dark"] .ikona-mesec { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .ikona-sunce { display: block; }
+  :root:not([data-theme="light"]) .ikona-mesec { display: none; }
+}
+
+/* ===================== DUGMAD ===================== */
+.btn {
+  display: inline-block; padding: 12px 22px; border-radius: 999px;
+  font-weight: 600; font-size: .95rem; transition: transform .15s, background .15s;
+}
+.btn:hover { text-decoration: none; transform: translateY(-1px); }
+.btn--primary { background: var(--accent); color: #fff; }
+.btn--ghost { border: 1px solid var(--border); color: var(--text); background: var(--surface); }
+
+/* ===================== HERO ===================== */
+.hero { padding: 88px 0 72px; }
+.hero__inner { display: grid; grid-template-columns: 1.3fr 1fr; gap: 56px; align-items: center; }
+.eyebrow { color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: .08em; font-size: .85rem; margin-bottom: .6em; }
+.hero h1 { font-size: clamp(2.6rem, 6vw, 4.2rem); margin-bottom: .2em; }
+.hero__role { font-size: 1.2rem; color: var(--muted); font-weight: 500; }
+.hero__lead { font-size: 1.1rem; max-width: 34em; }
+.hero__cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.hero__photo { justify-self: center; position: relative; }
+.hero__photo::before {
+  content: ""; position: absolute; inset: 18px -18px -18px 18px;
+  border-radius: 28px; background: var(--accent-soft); z-index: -1;
+}
+.hero__photo img {
+  width: 320px; height: 320px; object-fit: cover;
+  border-radius: 28px; box-shadow: var(--shadow); background: var(--surface);
+}
+
+/* ===================== SEKCIJE ===================== */
+.section { padding: 80px 0; }
+.section--alt { background: var(--bg-alt); }
+.section__title { font-size: clamp(1.8rem, 4vw, 2.4rem); margin-bottom: 1.2em; }
+.section__title::after {
+  content: ""; display: block; width: 48px; height: 4px; margin-top: 12px;
+  background: var(--accent); border-radius: 2px;
+}
+
+/* O meni */
+.about { display: grid; grid-template-columns: 1.5fr 1fr; gap: 48px; align-items: start; }
+.facts { list-style: none; margin: 0; padding: 20px 24px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+.facts li { padding: 10px 0; border-bottom: 1px solid var(--border); }
+.facts li:last-child { border-bottom: 0; }
+.facts span { display: block; font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+
+/* Iskustvo */
+.timeline { list-style: none; margin: 0; padding: 0; position: relative; }
+.timeline::before { content: ""; position: absolute; left: 160px; top: 8px; bottom: 8px; width: 2px; background: var(--border); }
+.job { display: grid; grid-template-columns: 160px 1fr; gap: 32px; padding-bottom: 40px; position: relative; }
+.job:last-child { padding-bottom: 0; }
+.job::before {
+  content: ""; position: absolute; left: 154px; top: 7px; width: 14px; height: 14px;
+  border-radius: 50%; background: var(--accent); border: 3px solid var(--bg-alt);
+}
+.job__period { color: var(--muted); font-weight: 600; font-size: .9rem; padding-top: 2px; }
+.job__body { padding-left: 8px; }
+.job h3 { font-size: 1.15rem; }
+.job h3 span { color: var(--muted); font-weight: 500; }
+
+.tags { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; }
+.tags li { font-size: .78rem; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+
+/* Projekti */
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+.card {
+  display: flex; flex-direction: column; gap: 10px;
+  padding: 26px; background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); transition: transform .2s, box-shadow .2s;
+}
+.card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.card__icon { font-size: 1.8rem; }
+.card h3 { margin: 0; font-size: 1.15rem; }
+.card p { color: var(--muted); margin: 0; flex: 1; }
+.card__link { font-weight: 600; font-size: .95rem; margin-top: 6px; }
+
+/* Van posla */
+.hobbies { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+.hobby { padding: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+.hobby__emoji { font-size: 2rem; display: block; margin-bottom: 8px; }
+.hobby h3 { font-size: 1.1rem; margin-bottom: .3em; }
+.hobby p { color: var(--muted); margin: 0; }
+
+/* Zanimljivosti */
+.fun { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.fun__item { text-align: center; padding: 28px 16px; border-radius: var(--radius); border: 1px dashed var(--border); }
+.fun__item strong { display: block; font-family: var(--font-display); font-size: 2.4rem; color: var(--accent); line-height: 1.1; }
+.fun__item span { color: var(--muted); font-size: .95rem; }
+.fun__note { margin-top: 32px; text-align: center; font-size: 1.05rem; }
+.fun__note em { font-style: normal; font-weight: 700; color: var(--accent); }
+
+/* Kontakt */
+.contact { text-align: center; }
+.contact .section__title::after { margin-left: auto; margin-right: auto; }
+.contact__lead { color: var(--muted); font-size: 1.1rem; }
+.contact__list { list-style: none; padding: 0; margin: 28px 0 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.contact__list a {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 12px 20px; border-radius: 999px; background: var(--surface);
+  border: 1px solid var(--border); color: var(--text); font-weight: 500;
+}
+.contact__list a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+/* Footer */
+.footer { padding: 32px 0; text-align: center; color: var(--muted); font-size: .9rem; border-top: 1px solid var(--border); }
+.footer p { margin: 0; }
+
+/* ===================== ANIMACIJA POJAVLJIVANJA ===================== */
+.js .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+.js .reveal.vidljivo { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* ===================== TELEFON / TABLET ===================== */
+@media (max-width: 860px) {
+  .hero { padding: 48px 0; }
+  .hero__inner { grid-template-columns: 1fr; gap: 40px; }
+  .hero__photo { order: -1; }
+  .hero__photo img { width: 220px; height: 220px; }
+  .about { grid-template-columns: 1fr; gap: 28px; }
+  .fun { grid-template-columns: repeat(2, 1fr); }
+
+  .nav__toggle { display: inline-grid; }
+  .nav__links {
+    position: absolute; top: 64px; left: 0; right: 0;
+    flex-direction: column; gap: 0; padding: 8px 20px 16px;
+    background: var(--bg); border-bottom: 1px solid var(--border);
+    display: none;
+  }
+  .nav__links.otvoren { display: flex; }
+  .nav__links a { padding: 12px 0; border-bottom: 1px solid var(--border); }
+  .nav__links a:last-child { border-bottom: 0; }
+}
+
+@media (max-width: 600px) {
+  .container { padding: 0 16px; }
+  .section { padding: 60px 0; }
+  .timeline::before { left: 6px; }
+  .job { grid-template-columns: 1fr; gap: 4px; padding-left: 32px; }
+  .job::before { left: 0; }
+  .job__body { padding-left: 0; }
+}

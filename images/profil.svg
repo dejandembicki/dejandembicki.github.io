@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" width="320" height="320">
+  <rect width="320" height="320" fill="#f2efe8"/>
+  <circle cx="160" cy="128" r="58" fill="#d6cfc2"/>
+  <path d="M52 320c8-66 52-104 108-104s100 38 108 104z" fill="#d6cfc2"/>
+  <text x="160" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#8a8377">Ovde ide tvoja slika</text>
+</svg>
