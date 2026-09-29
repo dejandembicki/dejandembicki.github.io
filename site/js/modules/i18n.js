@@ -22,7 +22,8 @@ const LANGUAGE_ALIASES = { sh: 'sr', hr: 'sr', bs: 'sr', cnr: 'sr' };
 
 const cache = new Map();
 
-function normalize(code) {
+// Maps any browser language code ("sr-Latn-RS", "de-AT", "hr") to a supported language, or null.
+export function normalizeLanguage(code) {
   if (!code) return null;
   const base = code.toLowerCase().split('-')[0];
   const lang = LANGUAGE_ALIASES[base] ?? base;
@@ -46,14 +47,14 @@ function storeLanguage(lang) {
 }
 
 export function detectLanguage() {
-  const fromUrl = normalize(new URLSearchParams(window.location.search).get('lang'));
+  const fromUrl = normalizeLanguage(new URLSearchParams(window.location.search).get('lang'));
   if (fromUrl) return fromUrl;
 
-  const stored = normalize(readStoredLanguage());
+  const stored = normalizeLanguage(readStoredLanguage());
   if (stored) return stored;
 
   for (const code of navigator.languages ?? [navigator.language]) {
-    const lang = normalize(code);
+    const lang = normalizeLanguage(code);
     if (lang) return lang;
   }
   return DEFAULT_LANGUAGE;

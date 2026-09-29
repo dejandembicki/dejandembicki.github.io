@@ -1,0 +1,14 @@
+{
+  "name": "licni-sajt",
+  "version": "1.0.0",
+  "description": "Personal website of Dejan Dembicki, a static site published with GitHub Pages.",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "scripts": {
+    "test": "node --test tests/"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
