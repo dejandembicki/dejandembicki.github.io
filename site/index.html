@@ -5,13 +5,62 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title data-i18n="meta.title">Dejan Dembicki — Mechanical Technician &amp; CNC Operator</title>
   <meta name="description" data-i18n-attr="content:meta.description" content="Dejan Dembicki, mechanical technician and CNC operator working on glass and metal processing. Experience, projects, interests and contact.">
+  <meta name="author" content="Dejan Dembicki">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#141412" media="(prefers-color-scheme: dark)">
+
+  <!-- SEO: one canonical URL, plus the same page in each language for search engines. -->
+  <link rel="canonical" href="https://dejandembicki90-ctrl.github.io/licni-sajt/">
+  <link rel="alternate" hreflang="en" href="https://dejandembicki90-ctrl.github.io/licni-sajt/">
+  <link rel="alternate" hreflang="sr" href="https://dejandembicki90-ctrl.github.io/licni-sajt/?lang=sr">
+  <link rel="alternate" hreflang="de" href="https://dejandembicki90-ctrl.github.io/licni-sajt/?lang=de">
+  <link rel="alternate" hreflang="x-default" href="https://dejandembicki90-ctrl.github.io/licni-sajt/">
+
+  <!-- Link previews (Facebook, LinkedIn, Viber, WhatsApp, X). -->
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="Dejan Dembicki">
+  <meta property="og:title" content="Dejan Dembicki — Mechanical Technician &amp; CNC Operator">
+  <meta property="og:description" content="Mechanical technician and CNC operator working on glass and metal processing.">
+  <meta property="og:url" content="https://dejandembicki90-ctrl.github.io/licni-sajt/">
+  <meta property="og:image" content="https://dejandembicki90-ctrl.github.io/licni-sajt/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="sr_RS">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta name="twitter:card" content="summary_large_image">
 
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
-  <!-- Fonts: preconnect saves a round trip; display=swap shows text immediately with a fallback font. -->
+  <!-- Structured data: tells search engines this page is about a person and what they do. -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Dejan Dembicki",
+      "jobTitle": "Mechanical Technician, CNC Operator",
+      "description": "Mechanical technician and CNC operator working on glass and metal processing.",
+      "url": "https://dejandembicki90-ctrl.github.io/licni-sajt/",
+      "image": "https://dejandembicki90-ctrl.github.io/licni-sajt/images/og-image.png",
+      "email": "mailto:dejan.dembicki.90@gmail.com",
+      "address": { "@type": "PostalAddress", "addressCountry": "RS" },
+      "knowsLanguage": ["sr", "en"],
+      "knowsAbout": ["CNC machining", "G-code", "Glass processing", "Metal processing", "Technical drawings"],
+      "sameAs": ["https://github.com/dejandembicki90-ctrl"]
+    }
+  </script>
+
+  <!--
+    Fonts: preconnect saves a round trip; display=swap shows text at once with a fallback font.
+    The font stylesheet loads as "print" (non-blocking) and switches to "all" when ready,
+    so it never delays the first paint.
+  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,700&display=swap"></noscript>
 
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/base.css">
@@ -26,7 +75,12 @@
       if (theme) document.documentElement.dataset.theme = theme;
     } catch (e) {}
   </script>
+  <!-- Modules are deferred by default; modulepreload fetches them in parallel instead of one after another. -->
   <script type="module" src="js/main.js"></script>
+  <link rel="modulepreload" href="js/modules/i18n.js">
+  <link rel="modulepreload" href="js/modules/theme.js">
+  <link rel="modulepreload" href="js/modules/navigation.js">
+  <link rel="modulepreload" href="js/modules/reveal.js">
 </head>
 <body>
   <!--
@@ -84,7 +138,7 @@
         </div>
         <div class="hero__photo reveal">
           <!-- EDIT: replace with your own photo (square, ~640×640), e.g. images/profile.jpg -->
-          <img src="images/profile.svg" data-i18n-attr="alt:hero.photoAlt" alt="Portrait of Dejan Dembicki" width="320" height="320">
+          <img src="images/profile.svg" data-i18n-attr="alt:hero.photoAlt" alt="Portrait of Dejan Dembicki" width="320" height="320" fetchpriority="high" decoding="async">
         </div>
       </div>
     </section>
