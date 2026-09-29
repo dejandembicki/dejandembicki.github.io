@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dejan Dembicki — Mechanical Technician &amp; CNC Operator</title>
-  <meta name="description" content="Dejan Dembicki, mechanical technician and CNC operator working on glass and metal processing. Experience, projects, interests and contact.">
+  <title data-i18n="meta.title">Dejan Dembicki — Mechanical Technician &amp; CNC Operator</title>
+  <meta name="description" data-i18n-attr="content:meta.description" content="Dejan Dembicki, mechanical technician and CNC operator working on glass and metal processing. Experience, projects, interests and contact.">
 
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
 
@@ -29,28 +29,38 @@
   <script type="module" src="js/main.js"></script>
 </head>
 <body>
-  <a class="skip-link visually-hidden" href="#main">Skip to content</a>
+  <!--
+    Translations: every element with data-i18n="key" gets its text from locales/<lang>.json.
+    data-i18n-attr="attribute:key" does the same for attributes (alt, aria-label, content).
+    The English text below is the default and what search engines index.
+  -->
+  <a class="skip-link visually-hidden" href="#main" data-i18n="a11y.skip">Skip to content</a>
 
   <!-- ==================== Navigation ==================== -->
   <header class="nav">
     <div class="container nav__inner">
-      <a href="#top" class="nav__logo" aria-label="Dejan Dembicki, home">DD<span>.</span></a>
+      <a href="#top" class="nav__logo" data-i18n-attr="aria-label:nav.home" aria-label="Dejan Dembicki, home">DD<span>.</span></a>
 
       <nav class="nav__links" id="site-menu" aria-label="Main">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#hobbies">Beyond work</a>
-        <a href="#fun-facts">Fun facts</a>
-        <a href="#contact">Contact</a>
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#experience" data-i18n="nav.experience">Experience</a>
+        <a href="#projects" data-i18n="nav.projects">Projects</a>
+        <a href="#hobbies" data-i18n="nav.hobbies">Beyond work</a>
+        <a href="#fun-facts" data-i18n="nav.funFacts">Fun facts</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
       </nav>
 
       <div class="nav__actions">
-        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle light / dark theme">
+        <div class="lang-switch" role="group" data-i18n-attr="aria-label:nav.language" aria-label="Language">
+          <button type="button" data-lang="en" lang="en" aria-pressed="true">EN</button>
+          <button type="button" data-lang="sr" lang="sr" aria-pressed="false">SR</button>
+          <button type="button" data-lang="de" lang="de" aria-pressed="false">DE</button>
+        </div>
+        <button class="icon-btn" id="theme-toggle" type="button" data-i18n-attr="aria-label:nav.theme" aria-label="Toggle light / dark theme">
           <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
           <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
         </button>
-        <button class="icon-btn nav__toggle" id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu">
+        <button class="icon-btn nav__toggle" id="menu-toggle" type="button" data-i18n-attr="aria-label:nav.menu" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu">
           <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         </button>
       </div>
@@ -63,22 +73,18 @@
     <section class="hero" id="top">
       <div class="container hero__inner">
         <div class="reveal">
-          <p class="hero__eyebrow">Hi, I'm</p>
+          <p class="hero__eyebrow" data-i18n="hero.eyebrow">Hi, I'm</p>
           <h1>Dejan Dembicki</h1>
-          <p class="hero__role">Mechanical Technician · CNC Operator</p>
-          <p class="hero__lead">
-            I run CNC machines for glass and metal processing. I enjoy precise work,
-            where mistakes are measured in hundredths of a millimetre and the result
-            is something you can hold in your hand.
-          </p>
+          <p class="hero__role" data-i18n="hero.role">Mechanical Technician · CNC Operator</p>
+          <p class="hero__lead" data-i18n="hero.lead">I run CNC machines for glass and metal processing. I enjoy precise work, where mistakes are measured in hundredths of a millimetre and the result is something you can hold in your hand.</p>
           <div class="hero__cta">
-            <a class="btn btn--primary" href="#contact">Get in touch</a>
-            <a class="btn btn--ghost" href="#experience">See my experience</a>
+            <a class="btn btn--primary" href="#contact" data-i18n="hero.ctaContact">Get in touch</a>
+            <a class="btn btn--ghost" href="#experience" data-i18n="hero.ctaExperience">See my experience</a>
           </div>
         </div>
         <div class="hero__photo reveal">
           <!-- EDIT: replace with your own photo (square, ~640×640), e.g. images/profile.jpg -->
-          <img src="images/profile.svg" alt="Portrait of Dejan Dembicki" width="320" height="320">
+          <img src="images/profile.svg" data-i18n-attr="alt:hero.photoAlt" alt="Portrait of Dejan Dembicki" width="320" height="320">
         </div>
       </div>
     </section>
@@ -86,26 +92,17 @@
     <!-- ==================== About ==================== -->
     <section class="section" id="about">
       <div class="container">
-        <h2 class="section__title reveal">About me</h2>
+        <h2 class="section__title reveal" data-i18n="about.title">About me</h2>
         <div class="about reveal">
           <div>
-            <p>
-              I am a mechanical technician by training. I have worked as a CNC operator
-              in glass and metal processing: from reading the technical drawing and
-              preparing the program, through setting up the machine and tools, to
-              checking the finished part.
-            </p>
-            <p>
-              What matters most to me is that work is done accurately and safely. I like
-              to understand how a machine works rather than just pressing "start". That
-              curiosity is also how this website came to be.
-            </p>
+            <p data-i18n="about.p1">I am a mechanical technician by training. I have worked as a CNC operator in glass and metal processing: from reading the technical drawing and preparing the program, through setting up the machine and tools, to checking the finished part.</p>
+            <p data-i18n="about.p2">What matters most to me is that work is done accurately and safely. I like to understand how a machine works rather than just pressing "start". That curiosity is also how this website came to be.</p>
           </div>
           <ul class="facts">
-            <li><span class="facts__label">Profession</span>Mechanical technician</li>
-            <li><span class="facts__label">Location</span>Serbia</li>
-            <li><span class="facts__label">Skills</span>CNC machining, G-code, technical drawings, precision measuring, tool setup</li>
-            <li><span class="facts__label">Materials</span>Glass, metal</li>
+            <li><span class="facts__label" data-i18n="about.professionLabel">Profession</span><span data-i18n="about.profession">Mechanical technician</span></li>
+            <li><span class="facts__label" data-i18n="about.locationLabel">Location</span><span data-i18n="about.location">Serbia</span></li>
+            <li><span class="facts__label" data-i18n="about.skillsLabel">Skills</span><span data-i18n="about.skills">CNC machining, G-code, technical drawings, precision measuring, tool setup</span></li>
+            <li><span class="facts__label" data-i18n="about.materialsLabel">Materials</span><span data-i18n="about.materials">Glass, metal</span></li>
           </ul>
         </div>
       </div>
@@ -114,30 +111,30 @@
     <!-- ==================== Experience ==================== -->
     <section class="section section--alt" id="experience">
       <div class="container">
-        <h2 class="section__title reveal">Work history</h2>
+        <h2 class="section__title reveal" data-i18n="experience.title">Work history</h2>
         <!-- EDIT: put years in .job__period (e.g. 2018 — 2023) and company names in .job__place. Newest first. -->
         <ol class="timeline">
           <li class="job reveal">
-            <div class="job__period">Glass processing</div>
+            <div class="job__period" data-i18n="experience.glass.period">Glass processing</div>
             <div class="job__body">
-              <h3>CNC Operator <span class="job__place">· glass processing</span></h3>
-              <p>Operating a CNC machine for glass: cutting, edge grinding and drilling to measure. Tool setup, process monitoring and dimensional inspection of finished pieces.</p>
-              <ul class="tags"><li>CNC</li><li>Glass</li><li>Quality control</li></ul>
+              <h3><span data-i18n="experience.glass.role">CNC Operator</span> <span class="job__place" data-i18n="experience.glass.place">· glass processing</span></h3>
+              <p data-i18n="experience.glass.description">Operating a CNC machine for glass: cutting, edge grinding and drilling to measure. Tool setup, process monitoring and dimensional inspection of finished pieces.</p>
+              <ul class="tags"><li>CNC</li><li data-i18n="tags.glass">Glass</li><li data-i18n="tags.qualityControl">Quality control</li></ul>
             </div>
           </li>
           <li class="job reveal">
-            <div class="job__period">Metal processing</div>
+            <div class="job__period" data-i18n="experience.metal.period">Metal processing</div>
             <div class="job__body">
-              <h3>CNC Operator <span class="job__place">· metal processing</span></h3>
-              <p>Machining metal parts from technical drawings. Entering and correcting programs, choosing and changing tools, measuring with callipers and micrometers.</p>
-              <ul class="tags"><li>CNC</li><li>G-code</li><li>Technical drawings</li><li>Metal</li></ul>
+              <h3><span data-i18n="experience.metal.role">CNC Operator</span> <span class="job__place" data-i18n="experience.metal.place">· metal processing</span></h3>
+              <p data-i18n="experience.metal.description">Machining metal parts from technical drawings. Entering and correcting programs, choosing and changing tools, measuring with callipers and micrometers.</p>
+              <ul class="tags"><li>CNC</li><li>G-code</li><li data-i18n="tags.technicalDrawings">Technical drawings</li><li data-i18n="tags.metal">Metal</li></ul>
             </div>
           </li>
           <li class="job reveal">
-            <div class="job__period">Education</div>
+            <div class="job__period" data-i18n="experience.school.period">Education</div>
             <div class="job__body">
-              <h3>Mechanical Technician <span class="job__place">· technical secondary school</span></h3>
-              <p>Technical drawing, machine elements, machining technology and the basics of CNC programming.</p>
+              <h3><span data-i18n="experience.school.role">Mechanical Technician</span> <span class="job__place" data-i18n="experience.school.place">· technical secondary school</span></h3>
+              <p data-i18n="experience.school.description">Technical drawing, machine elements, machining technology and the basics of CNC programming.</p>
             </div>
           </li>
         </ol>
@@ -147,27 +144,27 @@
     <!-- ==================== Projects ==================== -->
     <section class="section" id="projects">
       <div class="container">
-        <h2 class="section__title reveal">Projects</h2>
+        <h2 class="section__title reveal" data-i18n="projects.title">Projects</h2>
         <div class="card-grid">
           <article class="card reveal">
             <div class="card__icon" aria-hidden="true">🌐</div>
-            <h3>This website</h3>
-            <p>My first step into the web: built in VS Code with Claude Code and published automatically on every change.</p>
+            <h3 data-i18n="projects.site.title">This website</h3>
+            <p data-i18n="projects.site.description">My first step into the web: built in VS Code with Claude Code and published automatically on every change.</p>
             <ul class="tags"><li>HTML</li><li>CSS</li><li>GitHub Actions</li></ul>
-            <a class="card__link" href="https://github.com/dejandembicki90-ctrl/licni-sajt" target="_blank" rel="noopener">View the source →</a>
+            <a class="card__link" href="https://github.com/dejandembicki90-ctrl/licni-sajt" target="_blank" rel="noopener" data-i18n="projects.site.link">View the source →</a>
           </article>
           <!-- EDIT: the two examples below are placeholders; describe real jobs you are proud of or delete them. -->
           <article class="card reveal">
             <div class="card__icon" aria-hidden="true">🔷</div>
-            <h3>Custom glass parts</h3>
-            <p>Glass panels in non-standard shapes with ground edges and drilled holes, for furniture and interiors.</p>
-            <ul class="tags"><li>CNC</li><li>Glass</li></ul>
+            <h3 data-i18n="projects.glass.title">Custom glass parts</h3>
+            <p data-i18n="projects.glass.description">Glass panels in non-standard shapes with ground edges and drilled holes, for furniture and interiors.</p>
+            <ul class="tags"><li>CNC</li><li data-i18n="tags.glass">Glass</li></ul>
           </article>
           <article class="card reveal">
             <div class="card__icon" aria-hidden="true">⚙️</div>
-            <h3>Metal part series</h3>
-            <p>Setting up the machine and program for a production run so every part stays within tolerance with minimal scrap.</p>
-            <ul class="tags"><li>G-code</li><li>Metal</li><li>Measuring</li></ul>
+            <h3 data-i18n="projects.metal.title">Metal part series</h3>
+            <p data-i18n="projects.metal.description">Setting up the machine and program for a production run so every part stays within tolerance with minimal scrap.</p>
+            <ul class="tags"><li>G-code</li><li data-i18n="tags.metal">Metal</li><li data-i18n="tags.measuring">Measuring</li></ul>
           </article>
         </div>
       </div>
@@ -176,13 +173,13 @@
     <!-- ==================== Hobbies ==================== -->
     <section class="section section--alt" id="hobbies">
       <div class="container">
-        <h2 class="section__title reveal">Beyond work</h2>
+        <h2 class="section__title reveal" data-i18n="hobbies.title">Beyond work</h2>
         <!-- EDIT: your real hobbies. -->
         <div class="card-grid">
-          <div class="card reveal"><span class="hobby__emoji" aria-hidden="true">⚽</span><h3>Football</h3><p>A weekly game with friends, and cheering on weekends.</p></div>
-          <div class="card reveal"><span class="hobby__emoji" aria-hidden="true">🎣</span><h3>Fishing</h3><p>The best way to switch off and think in peace.</p></div>
-          <div class="card reveal"><span class="hobby__emoji" aria-hidden="true">🎮</span><h3>Video games</h3><p>Strategy games and games with a good story.</p></div>
-          <div class="card reveal"><span class="hobby__emoji" aria-hidden="true">🗺️</span><h3>Travel</h3><p>Discovering small towns and local food.</p></div>
+          <div class="card reveal"><span class="hobby__emoji" aria-hidden="true">⚽</span><h3 data-i18n="hobbies.football.title">Football</h3><p data-i18n="hobbies.football.description">A weekly game with friends, and cheering on weekends.</p></div>
+          <div class="card reveal"><span class="hobby__emoji" aria-hidden="true">🎣</span><h3 data-i18n="hobbies.fishing.title">Fishing</h3><p data-i18n="hobbies.fishing.description">The best way to switch off and think in peace.</p></div>
+          <div class="card reveal"><span class="hobby__emoji" aria-hidden="true">🎮</span><h3 data-i18n="hobbies.games.title">Video games</h3><p data-i18n="hobbies.games.description">Strategy games and games with a good story.</p></div>
+          <div class="card reveal"><span class="hobby__emoji" aria-hidden="true">🗺️</span><h3 data-i18n="hobbies.travel.title">Travel</h3><p data-i18n="hobbies.travel.description">Discovering small towns and local food.</p></div>
         </div>
       </div>
     </section>
@@ -190,15 +187,16 @@
     <!-- ==================== Fun facts ==================== -->
     <section class="section" id="fun-facts">
       <div class="container">
-        <h2 class="section__title reveal">A few fun facts</h2>
+        <h2 class="section__title reveal" data-i18n="fun.title">A few fun facts</h2>
         <div class="fun-facts">
-          <div class="fun-fact reveal"><strong>0.01 mm</strong><span>the precision my work is measured in</span></div>
-          <div class="fun-fact reveal"><strong>2</strong><span>very different materials: glass and metal</span></div>
-          <div class="fun-fact reveal"><strong>G00</strong><span>my favourite command (rapid move!)</span></div>
-          <div class="fun-fact reveal"><strong>1</strong><span>website I built myself — this one</span></div>
+          <div class="fun-fact reveal"><strong data-i18n="fun.precisionValue">0.01 mm</strong><span data-i18n="fun.precision">the precision my work is measured in</span></div>
+          <div class="fun-fact reveal"><strong>2</strong><span data-i18n="fun.materials">very different materials: glass and metal</span></div>
+          <div class="fun-fact reveal"><strong>G00</strong><span data-i18n="fun.command">my favourite command (rapid move!)</span></div>
+          <div class="fun-fact reveal"><strong>1</strong><span data-i18n="fun.website">website I built myself — this one</span></div>
         </div>
         <p class="fun-note reveal">
-          <strong>Did you know?</strong> Glass is never cut dry on a CNC machine. The tool is cooled with water the whole time, otherwise the edge would crack.
+          <strong data-i18n="fun.noteLabel">Did you know?</strong>
+          <span data-i18n="fun.note">Glass is never cut dry on a CNC machine. The tool is cooled with water the whole time, otherwise the edge would crack.</span>
         </p>
       </div>
     </section>
@@ -206,8 +204,8 @@
     <!-- ==================== Contact ==================== -->
     <section class="section section--alt" id="contact">
       <div class="container contact reveal">
-        <h2 class="section__title">Contact</h2>
-        <p class="contact__lead">Have a job, a question or an offer? Get in touch, I reply quickly.</p>
+        <h2 class="section__title" data-i18n="contact.title">Contact</h2>
+        <p class="contact__lead" data-i18n="contact.lead">Have a job, a question or an offer? Get in touch, I reply quickly.</p>
         <ul class="contact__list">
           <li>
             <a href="mailto:dejan.dembicki.90@gmail.com">
@@ -229,7 +227,7 @@
 
   <footer class="footer">
     <div class="container">
-      <p>© <span id="current-year">2026</span> Dejan Dembicki · Built with VS Code and Claude Code</p>
+      <p>© <span id="current-year">2026</span> Dejan Dembicki · <span data-i18n="footer.built">Built with VS Code and Claude Code</span></p>
     </div>
   </footer>
 </body>

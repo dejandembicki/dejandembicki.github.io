@@ -5,7 +5,9 @@
 import { initTheme } from './modules/theme.js';
 import { initNavigation } from './modules/navigation.js';
 import { initReveal } from './modules/reveal.js';
+import { initLanguageSwitcher } from './modules/i18n.js';
 
+initLanguageSwitcher(document.querySelector('.lang-switch'));
 initTheme(document.getElementById('theme-toggle'));
 initNavigation(document.getElementById('site-menu'), document.getElementById('menu-toggle'));
 initReveal();
