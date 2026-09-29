@@ -1,4 +1,4 @@
-# Checks the site, then publishes the site/ folder to GitHub Pages.
+﻿# Checks the site, then publishes the site/ folder to GitHub Pages.
 # Runs on every push to "main"; pull requests only run the checks.
 name: Test and deploy
 
@@ -19,8 +19,8 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
       - run: npm test
@@ -37,7 +37,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
