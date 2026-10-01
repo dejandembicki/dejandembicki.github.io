@@ -2,22 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://dejandembicki90-ctrl.github.io/licni-sajt/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dejandembicki90-ctrl.github.io/licni-sajt/"/>
-    <xhtml:link rel="alternate" hreflang="sr" href="https://dejandembicki90-ctrl.github.io/licni-sajt/?lang=sr"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://dejandembicki90-ctrl.github.io/licni-sajt/?lang=de"/>
+    <loc>https://dejandembicki.github.io/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dejandembicki.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="sr" href="https://dejandembicki.github.io/?lang=sr"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://dejandembicki.github.io/?lang=de"/>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://dejandembicki90-ctrl.github.io/licni-sajt/privacy.html</loc>
+    <loc>https://dejandembicki.github.io/privacy.html</loc>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://dejandembicki90-ctrl.github.io/licni-sajt/terms.html</loc>
+    <loc>https://dejandembicki.github.io/terms.html</loc>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://dejandembicki90-ctrl.github.io/licni-sajt/license.html</loc>
+    <loc>https://dejandembicki.github.io/license.html</loc>
     <changefreq>yearly</changefreq>
   </url>
 </urlset>

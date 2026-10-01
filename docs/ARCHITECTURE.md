@@ -81,9 +81,33 @@ A short tour of the building blocks of the site. For each one: **where** it live
 |--------|-----|
 | `main.js` | Entry point; connects each module to its element on the page |
 | `modules/theme.js` | Theme toggle |
-| `modules/navigation.js` | Mobile menu: open, close on link click or Escape |
-| `modules/reveal.js` | Fade-in of sections while scrolling (`IntersectionObserver`) |
+| `modules/navigation.js` | Mobile menu (open, close on link click or Escape) and the scroll progress bar under the header |
+| `modules/reveal.js` | Fade-in of sections while scrolling (`IntersectionObserver`); cards in a row appear one after another |
 | `modules/i18n.js` | Language detection and switching |
+| `modules/consent.js` | Privacy banner; loads Google Fonts only after consent for visitors in Europe |
+| `modules/typed.js` | Typewriter line in the hero (“I work with glass / metal / …”) |
+| `modules/fun-facts.js` | Numbers that count when scrolled into view, and the rotating “Did you know?” notes |
+| `modules/hints.js` | The [i] buttons on the work-history timeline (touch screens and keyboard) |
+| `modules/copy.js` | “Copy” button next to the email address |
+
+### Animations
+
+- **How:** mostly CSS: the hero lines rise in on load, the picture floats, the timeline dots
+  pulse one after another, and timeline hints appear on hover (only on devices with a mouse,
+  checked with `@media (hover: hover)`). JavaScript is used only where text changes
+  (typewriter, counters, rotating notes).
+- **Why:** a little movement draws the eye to the key facts. Every animation is switched
+  off for visitors whose system asks for reduced motion.
+
+### Privacy banner
+
+- **How:** the site sets no cookies. The only third-party request is Google Fonts, which
+  reveals the visitor's IP address to Google. `consent.js` guesses the region from the
+  browser's time zone (no IP lookup); in Europe it shows the banner and loads the fonts only
+  after “Accept”. Until then, and after “Decline”, the system fonts from `tokens.css` are used.
+  “Privacy settings” in the footer opens the banner again.
+- **Why:** under the GDPR, sending an IP address to Google needs consent. Gating the fonts
+  keeps the site lawful without an external consent service.
 
 - **How:** native ES modules (`<script type="module">`), which the browser loads
   without a build step. Each module exports one `init…` function.
@@ -94,8 +118,8 @@ A short tour of the building blocks of the site. For each one: **where** it live
 
 - No framework: about 20 KB of our own CSS and JS in total, uncompressed and with comments
   (GitHub Pages serves them compressed, which is several times smaller).
-- Web fonts load **without blocking** the first paint (`media="print"` switched to
-  `all` on load, plus `display=swap`), and only the font weights in use are requested.
+- Web fonts never block the first paint: they are added by JavaScript (after consent in
+  Europe) with `display=swap`, and only the font weights in use are requested.
 - `<link rel="modulepreload">` fetches all JS modules in parallel.
 - The scroll animation uses `IntersectionObserver` instead of scroll events.
 - Images have fixed `width`/`height`, so the layout does not jump while they load.

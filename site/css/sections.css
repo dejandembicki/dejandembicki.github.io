@@ -27,9 +27,56 @@
 }
 
 .hero__role {
+  margin-bottom: 0.4em;
   font-size: 1.2rem;
   font-weight: 500;
   color: var(--color-muted);
+}
+
+/* Typewriter line: the word is typed and deleted by js/modules/typed.js. */
+.hero__typed {
+  min-height: 1.65em;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.typed {
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.typed__caret {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  margin-left: 3px;
+  vertical-align: -0.15em;
+  background: var(--color-accent);
+  animation: caret-blink 1s steps(1) infinite;
+}
+
+@keyframes caret-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Page-load entrance: the hero lines rise in one after another. */
+.js .hero__intro > * {
+  animation: hero-rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.js .hero__intro > :nth-child(2) { animation-delay: 0.08s; }
+.js .hero__intro > :nth-child(3) { animation-delay: 0.16s; }
+.js .hero__intro > :nth-child(4) { animation-delay: 0.24s; }
+.js .hero__intro > :nth-child(5) { animation-delay: 0.32s; }
+.js .hero__intro > :nth-child(6) { animation-delay: 0.4s; }
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
 }
 
 .hero__lead {
@@ -66,6 +113,14 @@
   background: var(--color-surface);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow);
+  animation: hero-float 6s ease-in-out infinite;
+}
+
+/* The picture bobs gently, to draw the eye without getting in the way. */
+@keyframes hero-float {
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 /* ---------- About ---------- */
@@ -133,16 +188,116 @@
   padding-bottom: 0;
 }
 
-.job::before {
+.job::before,
+.job::after {
   content: "";
   position: absolute;
   top: 7px;
   left: calc(var(--period-width) - 6px);
   width: 14px;
   height: 14px;
+  border-radius: 50%;
+}
+
+.job::before {
+  z-index: 1;
   background: var(--color-accent);
   border: 3px solid var(--color-bg-alt);
+  transition: transform 0.2s ease;
+}
+
+/* A ring that pulses out of each dot; the dots take turns. */
+.job::after {
+  background: var(--color-accent);
+  opacity: 0;
+  animation: timeline-pulse 3s ease-out infinite;
+}
+
+.job:nth-child(2)::after { animation-delay: 1s; }
+.job:nth-child(3)::after { animation-delay: 2s; }
+
+@keyframes timeline-pulse {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+
+  60%,
+  100% {
+    opacity: 0;
+    transform: scale(2.6);
+  }
+}
+
+.job:hover::before {
+  transform: scale(1.3);
+}
+
+/* ---------- Timeline hints ---------- */
+.job__head {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.job__info {
+  flex-shrink: 0;
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  margin-top: 1px;
+  padding: 0;
+  font: italic 700 0.8rem/1 Georgia, serif;
+  color: var(--color-accent);
+  background: var(--color-accent-soft);
+  border: 0;
   border-radius: 50%;
+  cursor: pointer;
+}
+
+.job__info[aria-expanded="true"] {
+  color: var(--color-on-accent);
+  background: var(--color-accent);
+}
+
+/* The hint floats under the title like a tooltip, with a small arrow pointing at the [i]. */
+.job__hint {
+  position: absolute;
+  top: calc(100% - 0.3em);
+  left: 0;
+  z-index: 5;
+  width: min(420px, 100%);
+  margin: 0;
+  padding: 12px 16px;
+  font-size: 0.92rem;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-accent);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+
+.job__info[aria-expanded="true"] + .job__hint,
+.job__info:focus-visible + .job__hint {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+/* Only devices with a real mouse open the hint on hover; touch screens use the [i] button. */
+@media (hover: hover) {
+  .job__head:hover .job__hint {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
 }
 
 .job__period {
@@ -173,17 +328,41 @@
 }
 
 /* ---------- Fun facts ---------- */
+/* minmax(0, 1fr) lets columns shrink below their content, so long words never widen the page. */
 .fun-facts {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 20px;
 }
 
 .fun-fact {
   padding: 28px 16px;
   text-align: center;
+  overflow-wrap: anywhere;
   border: 1px dashed var(--color-border);
   border-radius: var(--radius);
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.fun-fact:hover {
+  background: var(--color-accent-soft);
+  border-color: var(--color-accent);
+}
+
+.fun-fact strong {
+  font-variant-numeric: tabular-nums;
+}
+
+/* "G00" is the rapid-move command, so it shoots in from the side. */
+.js .fun-fact.is-visible .fun-fact__rapid {
+  animation: rapid-move 0.5s cubic-bezier(0.8, 0, 0.2, 1) 0.3s both;
+}
+
+@keyframes rapid-move {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
 }
 
 .fun-fact strong {
@@ -207,6 +386,28 @@
 
 .fun-note strong {
   color: var(--color-accent);
+}
+
+/* All notes share one grid cell, so the box keeps the height of the longest one and nothing jumps. */
+.fun-note__items {
+  display: grid;
+  max-width: 44em;
+  margin: 6px auto 0;
+}
+
+.fun-note__items > * {
+  grid-area: 1 / 1;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s;
+}
+
+.fun-note__items > .is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
 }
 
 /* ---------- Contact ---------- */
@@ -251,6 +452,38 @@
   border-color: var(--color-accent);
 }
 
+/* Email link and its 'Copy' button sit side by side as one pill. */
+.contact__email {
+  display: inline-flex;
+}
+
+.contact__email a {
+  border-radius: 999px 0 0 999px;
+}
+
+.contact__copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 16px;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  background: var(--color-accent-soft);
+  border: 1px solid var(--color-border);
+  border-left: 0;
+  border-radius: 0 999px 999px 0;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.contact__copy:hover,
+.contact__copy.is-copied {
+  color: var(--color-on-accent);
+  background: var(--color-accent);
+}
+
 /* ---------- Footer ---------- */
 .footer {
   padding: 32px 0;
@@ -283,6 +516,19 @@
 
 .footer__links a:hover,
 .footer__links a[aria-current="page"] {
+  color: var(--color-accent);
+}
+
+.footer__consent {
+  padding: 0;
+  font: inherit;
+  color: var(--color-muted);
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.footer__consent:hover {
   color: var(--color-accent);
 }
 
@@ -349,7 +595,7 @@
   }
 
   .fun-facts {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -364,7 +610,8 @@
     padding-left: 32px;
   }
 
-  .job::before {
+  .job::before,
+  .job::after {
     left: 0;
   }
 
@@ -379,5 +626,59 @@
   .footer__inner {
     flex-direction: column;
     text-align: center;
+  }
+}
+
+/* On phones the email and its Copy button stack, so the long address never widens the page. */
+@media (max-width: 480px) {
+  .contact__email {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    max-width: 100%;
+  }
+
+  .contact__email a,
+  .contact__copy {
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+  }
+
+  .contact__email a {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    padding-inline: 16px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Very narrow phones (iPhone SE and similar): one column, a little less padding. */
+@media (max-width: 400px) {
+  .fun-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Visitors who prefer reduced motion get a still page: no entrance, float, pulse or blinking. */
+@media (prefers-reduced-motion: reduce) {
+  .js .hero__intro > *,
+  .hero__photo img,
+  .job::after,
+  .typed__caret,
+  .js .fun-fact.is-visible .fun-fact__rapid {
+    animation: none;
+  }
+
+  .fun-note__items > *,
+  .job__hint {
+    transition: none;
   }
 }

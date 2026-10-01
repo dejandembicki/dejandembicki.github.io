@@ -3,7 +3,7 @@
 The personal website of Dejan Dembicki, a mechanical technician and CNC operator.
 It covers my work history, projects, hobbies, a few fun facts and contact details.
 
-**Live site:** https://dejandembicki90-ctrl.github.io/licni-sajt/
+**Live site:** https://dejandembicki.github.io/
 
 - Static site: plain HTML, CSS and JavaScript, with no framework and no build step
 - Works on phones, tablets and desktops (responsive)
@@ -11,6 +11,8 @@ It covers my work history, projects, hobbies, a few fun facts and contact detail
 - Three languages: English, Serbian and German
 - SEO-ready: meta and Open Graph tags, structured data, sitemap, robots.txt
 - Short privacy policy, terms of use and license pages, in all three languages
+- Light animations (typewriter, counters, pulsing timeline with hints) that respect “reduced motion”
+- Privacy banner: Google Fonts load only after consent for visitors in Europe; no cookies
 - Automatically tested and published to GitHub Pages on every push to `main`
 
 Why the project exists and how it was made is described in [PURPOSE.md](PURPOSE.md).
@@ -25,7 +27,7 @@ site/                    ← everything that gets published
   404.html               ← "page not found" page
   css/                   ← tokens → base → components → sections
   js/main.js             ← entry point that wires up the modules
-  js/modules/            ← theme, navigation, reveal animation, i18n
+  js/modules/            ← one file per feature: theme, navigation, i18n, consent, animations …
   locales/               ← en.json, sr.json, de.json (translated texts)
   images/                ← logo, hero artwork, icons, link preview image
   robots.txt, sitemap.xml

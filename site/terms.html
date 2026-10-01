@@ -8,16 +8,12 @@
   <meta name="author" content="Dejan Dembicki">
   <meta name="theme-color" content="#f7f9fa" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0e1418" media="(prefers-color-scheme: dark)">
-  <link rel="canonical" href="https://dejandembicki90-ctrl.github.io/licni-sajt/terms.html">
+  <link rel="canonical" href="https://dejandembicki.github.io/terms.html">
 
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
-  <!-- Same non-blocking font loading as index.html. -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,700&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,700&display=swap"></noscript>
+  <!-- Web fonts are added by js/modules/consent.js (see index.html). -->
 
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/base.css">
@@ -55,6 +51,7 @@
         </button>
       </div>
     </div>
+    <div class="nav__progress" aria-hidden="true"></div>
   </header>
 
   <main id="main" class="container legal">
@@ -84,8 +81,20 @@
         <a href="privacy.html" data-i18n="footer.privacy">Privacy</a>
         <a href="terms.html" aria-current="page" data-i18n="footer.terms">Terms of use</a>
         <a href="license.html" data-i18n="footer.license">License</a>
+        <button class="footer__consent" type="button" data-consent-open data-i18n="footer.consent">Privacy settings</button>
       </nav>
     </div>
   </footer>
+
+  <!-- Privacy banner: shown by js/modules/consent.js to visitors in Europe until they choose. -->
+  <section class="consent" id="consent" aria-labelledby="consent-title" hidden>
+    <h2 class="consent__title" id="consent-title" data-i18n="consent.title">Your privacy</h2>
+    <p data-i18n="consent.text">This site uses no cookies or tracking. It only remembers your language and theme in your browser. If you accept, fonts are loaded from Google Fonts, which shares your IP address with Google. If you decline, the site uses your device's fonts.</p>
+    <div class="consent__actions">
+      <button class="btn btn--primary" type="button" data-consent="accepted" data-i18n="consent.accept">Accept</button>
+      <button class="btn btn--ghost" type="button" data-consent="declined" data-i18n="consent.decline">Decline</button>
+      <a href="privacy.html" data-i18n="consent.more">Privacy policy</a>
+    </div>
+  </section>
 </body>
 </html>

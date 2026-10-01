@@ -93,3 +93,12 @@ test('each legal page has a title, description, canonical URL and one <h1>', () 
     assert.equal((markup.match(/<h1\b/g) ?? []).length, 1, `${page}: exactly one <h1>`);
   }
 });
+
+test('no page loads Google Fonts directly; every page has the privacy banner', () => {
+  for (const page of PAGES) {
+    const markup = readMarkup(page);
+    assert.ok(!markup.includes('fonts.googleapis.com'), `${page} must leave web fonts to js/modules/consent.js`);
+    assert.match(markup, /<section class="consent" id="consent"[^>]*hidden>/, `${page} has no privacy banner`);
+    assert.match(markup, /data-consent-open/, `${page} footer has no "Privacy settings" button`);
+  }
+});

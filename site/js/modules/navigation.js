@@ -23,3 +23,31 @@ export function initNavigation(menu, toggleButton) {
     if (event.key === 'Escape') setOpen(false);
   });
 }
+
+/**
+ * Thin progress bar under the header that fills as the page is scrolled.
+ * The work is batched into one update per animation frame, so scrolling stays smooth.
+ */
+export function initScrollProgress(bar) {
+  if (!bar) return;
+  let queued = false;
+
+  const update = () => {
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
+    bar.style.transform = `scaleX(${Math.min(Math.max(progress, 0), 1)})`;
+    queued = false;
+  };
+
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (!queued) {
+        queued = true;
+        requestAnimationFrame(update);
+      }
+    },
+    { passive: true }
+  );
+  update();
+}

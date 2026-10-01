@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dejandembicki90-ctrl.github.io/licni-sajt/sitemap.xml
+Sitemap: https://dejandembicki.github.io/sitemap.xml

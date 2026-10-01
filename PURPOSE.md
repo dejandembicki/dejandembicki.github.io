@@ -22,7 +22,7 @@ automatically to the cloud, where it is publicly available.
 |---|-----------|---------------|
 | 1 | All code is on GitHub; all online content and code are in English | Public repository; English is the default language of the site, code, comments and docs |
 | 2 | Free hosting on GitHub Pages; every change publishes a new version | `.github/workflows/deploy.yml` deploys on every push to `main` |
-| 3 | The site is available on the internet for testing | https://dejandembicki90-ctrl.github.io/licni-sajt/ |
+| 3 | The site is available on the internet for testing | https://dejandembicki.github.io/ |
 | 4 | Responsive design for small and large screens | CSS grid layouts with breakpoints at 900, 860 and 600 px; mobile menu |
 | 5 | Modern design with neatly aligned components | Design tokens, a consistent spacing scale, cards and a timeline |
 | 6 | Dark and light theme | `css/tokens.css` and `js/modules/theme.js` |
@@ -51,6 +51,9 @@ to see the site as it was at that point.
 7. **Design feedback.** After testing: a teal/blue colour scheme instead of orange, a
    hex-nut “DD” logo with matching hero artwork and icons, and short privacy, terms and
    license pages linked from the footer.
+8. **Features feedback.** Animations (typewriter, counters, rotating notes, pulsing
+   timeline with hints), an email “Copy” button, a privacy banner with font consent for
+   European visitors, the desktop menu-button fix and a fix for very narrow phones.
 
 ## What the project shows
 

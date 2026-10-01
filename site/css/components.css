@@ -90,12 +90,13 @@
   gap: 6px;
 }
 
-.nav__toggle {
+/* .icon-btn (further down) sets display, so the menu button needs the higher specificity to stay hidden on desktop. */
+.icon-btn.nav__toggle {
   display: none;
 }
 
 @media (max-width: 900px) {
-  .nav__toggle {
+  .icon-btn.nav__toggle {
     display: inline-grid;
   }
 
@@ -316,5 +317,83 @@
 @media (max-width: 600px) {
   .section {
     padding: 60px 0;
+  }
+}
+
+/* ---------- Scroll progress bar (under the header) ---------- */
+.nav__progress {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 2px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+/* ---------- Privacy banner ---------- */
+.consent {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  left: 16px;
+  z-index: 50;
+  max-width: 560px;
+  margin-inline: auto;
+  padding: 20px 22px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 40px rgb(0 0 0 / 18%);
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.consent.is-open {
+  opacity: 1;
+  transform: none;
+}
+
+.consent__title {
+  margin-bottom: 0.3em;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  letter-spacing: 0;
+}
+
+.consent p {
+  margin-bottom: 14px;
+  font-size: 0.92rem;
+  color: var(--color-muted);
+}
+
+.consent__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+}
+
+.consent__actions .btn {
+  padding: 9px 18px;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.consent__actions .btn--primary {
+  border: 1px solid var(--color-accent);
+}
+
+.consent__actions a {
+  font-size: 0.9rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .consent {
+    transition: none;
   }
 }

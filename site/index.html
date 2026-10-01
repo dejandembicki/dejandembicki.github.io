@@ -11,19 +11,19 @@
   <meta name="theme-color" content="#0e1418" media="(prefers-color-scheme: dark)">
 
   <!-- SEO: one canonical URL, plus the same page in each language for search engines. -->
-  <link rel="canonical" href="https://dejandembicki90-ctrl.github.io/licni-sajt/">
-  <link rel="alternate" hreflang="en" href="https://dejandembicki90-ctrl.github.io/licni-sajt/">
-  <link rel="alternate" hreflang="sr" href="https://dejandembicki90-ctrl.github.io/licni-sajt/?lang=sr">
-  <link rel="alternate" hreflang="de" href="https://dejandembicki90-ctrl.github.io/licni-sajt/?lang=de">
-  <link rel="alternate" hreflang="x-default" href="https://dejandembicki90-ctrl.github.io/licni-sajt/">
+  <link rel="canonical" href="https://dejandembicki.github.io/">
+  <link rel="alternate" hreflang="en" href="https://dejandembicki.github.io/">
+  <link rel="alternate" hreflang="sr" href="https://dejandembicki.github.io/?lang=sr">
+  <link rel="alternate" hreflang="de" href="https://dejandembicki.github.io/?lang=de">
+  <link rel="alternate" hreflang="x-default" href="https://dejandembicki.github.io/">
 
   <!-- Link previews (Facebook, LinkedIn, Viber, WhatsApp, X). -->
   <meta property="og:type" content="profile">
   <meta property="og:site_name" content="Dejan Dembicki">
   <meta property="og:title" content="Dejan Dembicki — Mechanical Technician &amp; CNC Operator">
   <meta property="og:description" content="Mechanical technician and CNC operator working on glass and metal processing.">
-  <meta property="og:url" content="https://dejandembicki90-ctrl.github.io/licni-sajt/">
-  <meta property="og:image" content="https://dejandembicki90-ctrl.github.io/licni-sajt/images/og-image.png">
+  <meta property="og:url" content="https://dejandembicki.github.io/">
+  <meta property="og:image" content="https://dejandembicki.github.io/images/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="en_US">
@@ -42,26 +42,20 @@
       "name": "Dejan Dembicki",
       "jobTitle": "Mechanical Technician, CNC Operator",
       "description": "Mechanical technician and CNC operator working on glass and metal processing.",
-      "url": "https://dejandembicki90-ctrl.github.io/licni-sajt/",
-      "image": "https://dejandembicki90-ctrl.github.io/licni-sajt/images/og-image.png",
+      "url": "https://dejandembicki.github.io/",
+      "image": "https://dejandembicki.github.io/images/og-image.png",
       "email": "mailto:dejan.dembicki.90@gmail.com",
       "address": { "@type": "PostalAddress", "addressCountry": "RS" },
       "knowsLanguage": ["sr", "en"],
       "knowsAbout": ["CNC machining", "G-code", "Glass processing", "Metal processing", "Technical drawings"],
-      "sameAs": ["https://github.com/dejandembicki90-ctrl"]
+      "sameAs": ["https://github.com/dejandembicki"]
     }
   </script>
 
   <!--
-    Fonts: preconnect saves a round trip; display=swap shows text at once with a fallback font.
-    The font stylesheet loads as "print" (non-blocking) and switches to "all" when ready,
-    so it never delays the first paint.
+    Web fonts (Google Fonts) are not linked here: js/modules/consent.js adds them, after
+    consent for visitors in Europe. Until then the system fonts from tokens.css are used.
   -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,700&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,700&display=swap"></noscript>
-
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/components.css">
@@ -81,6 +75,11 @@
   <link rel="modulepreload" href="js/modules/theme.js">
   <link rel="modulepreload" href="js/modules/navigation.js">
   <link rel="modulepreload" href="js/modules/reveal.js">
+  <link rel="modulepreload" href="js/modules/consent.js">
+  <link rel="modulepreload" href="js/modules/typed.js">
+  <link rel="modulepreload" href="js/modules/fun-facts.js">
+  <link rel="modulepreload" href="js/modules/hints.js">
+  <link rel="modulepreload" href="js/modules/copy.js">
 </head>
 <body>
   <!--
@@ -123,6 +122,7 @@
         </button>
       </div>
     </div>
+    <div class="nav__progress" aria-hidden="true"></div>
   </header>
 
   <main id="main">
@@ -130,10 +130,13 @@
     <!-- ==================== Hero ==================== -->
     <section class="hero" id="top">
       <div class="container hero__inner">
-        <div class="reveal">
+        <!-- The hero lines appear one after another on page load (CSS animation, see sections.css). -->
+        <div class="hero__intro">
           <p class="hero__eyebrow" data-i18n="hero.eyebrow">Hi, I'm</p>
           <h1>Dejan Dembicki</h1>
           <p class="hero__role" data-i18n="hero.role">Mechanical Technician · CNC Operator</p>
+          <!-- Typewriter: js/modules/typed.js cycles through the words in data-words. -->
+          <p class="hero__typed"><span data-i18n="hero.typedLabel">I work with</span> <span class="typed" data-i18n-attr="data-words:hero.typedWords" data-words="glass|metal|G-code|technical drawings|0.01 mm tolerances">glass</span><span class="typed__caret" aria-hidden="true"></span></p>
           <p class="hero__lead" data-i18n="hero.lead">I run CNC machines for glass and metal processing. I enjoy precise work, where mistakes are measured in hundredths of a millimetre and the result is something you can hold in your hand.</p>
           <div class="hero__cta">
             <a class="btn btn--primary" href="#contact" data-i18n="hero.ctaContact">Get in touch</a>
@@ -171,11 +174,16 @@
       <div class="container">
         <h2 class="section__title reveal" data-i18n="experience.title">Work history</h2>
         <!-- EDIT: put years in .job__period (e.g. 2018 — 2023) and company names in .job__place. Newest first. -->
+        <!-- Hover a job title (or tap the [i] button on touch screens) for a short extra note: js/modules/hints.js. -->
         <ol class="timeline">
           <li class="job reveal">
             <div class="job__period" data-i18n="experience.glass.period">Glass processing</div>
             <div class="job__body">
-              <h3><span data-i18n="experience.glass.role">CNC Operator</span> <span class="job__place" data-i18n="experience.glass.place">· glass processing</span></h3>
+              <div class="job__head">
+                <h3><span data-i18n="experience.glass.role">CNC Operator</span> <span class="job__place" data-i18n="experience.glass.place">· glass processing</span></h3>
+                <button class="job__info" type="button" aria-expanded="false" aria-controls="hint-glass" data-i18n-attr="aria-label:experience.hintLabel" aria-label="More information">i</button>
+                <p class="job__hint" id="hint-glass" data-i18n="experience.glass.hint">Diamond tools do the cutting and grinding, and a constant flow of water keeps the glass from cracking.</p>
+              </div>
               <p data-i18n="experience.glass.description">Operating a CNC machine for glass: cutting, edge grinding and drilling to measure. Tool setup, process monitoring and dimensional inspection of finished pieces.</p>
               <ul class="tags"><li>CNC</li><li data-i18n="tags.glass">Glass</li><li data-i18n="tags.qualityControl">Quality control</li></ul>
             </div>
@@ -183,7 +191,11 @@
           <li class="job reveal">
             <div class="job__period" data-i18n="experience.metal.period">Metal processing</div>
             <div class="job__body">
-              <h3><span data-i18n="experience.metal.role">CNC Operator</span> <span class="job__place" data-i18n="experience.metal.place">· metal processing</span></h3>
+              <div class="job__head">
+                <h3><span data-i18n="experience.metal.role">CNC Operator</span> <span class="job__place" data-i18n="experience.metal.place">· metal processing</span></h3>
+                <button class="job__info" type="button" aria-expanded="false" aria-controls="hint-metal" data-i18n-attr="aria-label:experience.hintLabel" aria-label="More information">i</button>
+                <p class="job__hint" id="hint-metal" data-i18n="experience.metal.hint">The first part of every series is measured before the run continues, so a mistake is never repeated a hundred times.</p>
+              </div>
               <p data-i18n="experience.metal.description">Machining metal parts from technical drawings. Entering and correcting programs, choosing and changing tools, measuring with callipers and micrometers.</p>
               <ul class="tags"><li>CNC</li><li>G-code</li><li data-i18n="tags.technicalDrawings">Technical drawings</li><li data-i18n="tags.metal">Metal</li></ul>
             </div>
@@ -191,7 +203,11 @@
           <li class="job reveal">
             <div class="job__period" data-i18n="experience.school.period">Education</div>
             <div class="job__body">
-              <h3><span data-i18n="experience.school.role">Mechanical Technician</span> <span class="job__place" data-i18n="experience.school.place">· technical secondary school</span></h3>
+              <div class="job__head">
+                <h3><span data-i18n="experience.school.role">Mechanical Technician</span> <span class="job__place" data-i18n="experience.school.place">· technical secondary school</span></h3>
+                <button class="job__info" type="button" aria-expanded="false" aria-controls="hint-school" data-i18n-attr="aria-label:experience.hintLabel" aria-label="More information">i</button>
+                <p class="job__hint" id="hint-school" data-i18n="experience.school.hint">Technical drawing is the common language of every workshop: reading any part starts there.</p>
+              </div>
               <p data-i18n="experience.school.description">Technical drawing, machine elements, machining technology and the basics of CNC programming.</p>
             </div>
           </li>
@@ -209,7 +225,7 @@
             <h3 data-i18n="projects.site.title">This website</h3>
             <p data-i18n="projects.site.description">My first step into the web: built in VS Code with Claude Code and published automatically on every change.</p>
             <ul class="tags"><li>HTML</li><li>CSS</li><li>GitHub Actions</li></ul>
-            <a class="card__link" href="https://github.com/dejandembicki90-ctrl/licni-sajt" target="_blank" rel="noopener" data-i18n="projects.site.link">View the source →</a>
+            <a class="card__link" href="https://github.com/dejandembicki/dejandembicki.github.io" target="_blank" rel="noopener" data-i18n="projects.site.link">View the source →</a>
           </article>
           <!-- EDIT: the two examples below are placeholders; describe real jobs you are proud of or delete them. -->
           <article class="card reveal">
@@ -246,16 +262,22 @@
     <section class="section" id="fun-facts">
       <div class="container">
         <h2 class="section__title reveal" data-i18n="fun.title">A few fun facts</h2>
+        <!-- Numbers with data-count-from count up (or down) when scrolled into view: js/modules/fun-facts.js. -->
         <div class="fun-facts">
-          <div class="fun-fact reveal"><strong data-i18n="fun.precisionValue">0.01 mm</strong><span data-i18n="fun.precision">the precision my work is measured in</span></div>
-          <div class="fun-fact reveal"><strong>2</strong><span data-i18n="fun.materials">very different materials: glass and metal</span></div>
-          <div class="fun-fact reveal"><strong>G00</strong><span data-i18n="fun.command">my favourite command (rapid move!)</span></div>
-          <div class="fun-fact reveal"><strong>1</strong><span data-i18n="fun.website">website I built myself — this one</span></div>
+          <div class="fun-fact reveal"><strong data-count-from="1" data-i18n="fun.precisionValue">0.01 mm</strong><span data-i18n="fun.precision">the precision my work is measured in</span></div>
+          <div class="fun-fact reveal"><strong data-count-from="0">2</strong><span data-i18n="fun.materials">very different materials: glass and metal</span></div>
+          <div class="fun-fact reveal"><strong class="fun-fact__rapid">G00</strong><span data-i18n="fun.command">my favourite command (rapid move!)</span></div>
+          <div class="fun-fact reveal"><strong data-count-from="0">1</strong><span data-i18n="fun.website">website I built myself — this one</span></div>
         </div>
-        <p class="fun-note reveal">
+        <!-- The notes take turns every few seconds (pauses while hovered). -->
+        <div class="fun-note reveal">
           <strong data-i18n="fun.noteLabel">Did you know?</strong>
-          <span data-i18n="fun.note">Glass is never cut dry on a CNC machine. The tool is cooled with water the whole time, otherwise the edge would crack.</span>
-        </p>
+          <div class="fun-note__items">
+            <p class="is-active" data-rotate-item data-i18n="fun.note">Glass is never cut dry on a CNC machine. The tool is cooled with water the whole time, otherwise the edge would crack.</p>
+            <p data-rotate-item data-i18n="fun.note2">G-code is older than most of the machines that run it today: it was first developed at MIT in the late 1950s.</p>
+            <p data-rotate-item data-i18n="fun.note3">A human hair is about 0.07 mm thick, so 0.01 mm is roughly a seventh of a hair.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -265,14 +287,18 @@
         <h2 class="section__title" data-i18n="contact.title">Contact</h2>
         <p class="contact__lead" data-i18n="contact.lead">Have a job, a question or an offer? Get in touch, I reply quickly.</p>
         <ul class="contact__list">
-          <li>
+          <li class="contact__email">
             <a href="mailto:dejan.dembicki.90@gmail.com">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
               dejan.dembicki.90@gmail.com
             </a>
+            <button class="contact__copy" type="button" data-copy="dejan.dembicki.90@gmail.com" data-copied="Copied!" data-i18n-attr="aria-label:contact.copyLabel;data-copied:contact.copied" aria-label="Copy the email address">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg>
+              <span data-i18n="contact.copy">Copy</span>
+            </button>
           </li>
           <li>
-            <a href="https://github.com/dejandembicki90-ctrl" target="_blank" rel="noopener">
+            <a href="https://github.com/dejandembicki" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg>
               GitHub
             </a>
@@ -290,8 +316,20 @@
         <a href="privacy.html" data-i18n="footer.privacy">Privacy</a>
         <a href="terms.html" data-i18n="footer.terms">Terms of use</a>
         <a href="license.html" data-i18n="footer.license">License</a>
+        <button class="footer__consent" type="button" data-consent-open data-i18n="footer.consent">Privacy settings</button>
       </nav>
     </div>
   </footer>
+
+  <!-- Privacy banner: shown by js/modules/consent.js to visitors in Europe until they choose. -->
+  <section class="consent" id="consent" aria-labelledby="consent-title" hidden>
+    <h2 class="consent__title" id="consent-title" data-i18n="consent.title">Your privacy</h2>
+    <p data-i18n="consent.text">This site uses no cookies or tracking. It only remembers your language and theme in your browser. If you accept, fonts are loaded from Google Fonts, which shares your IP address with Google. If you decline, the site uses your device's fonts.</p>
+    <div class="consent__actions">
+      <button class="btn btn--primary" type="button" data-consent="accepted" data-i18n="consent.accept">Accept</button>
+      <button class="btn btn--ghost" type="button" data-consent="declined" data-i18n="consent.decline">Decline</button>
+      <a href="privacy.html" data-i18n="consent.more">Privacy policy</a>
+    </div>
+  </section>
 </body>
 </html>
