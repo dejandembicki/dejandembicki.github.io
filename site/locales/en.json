@@ -20,7 +20,7 @@
   "hero.lead": "I run CNC machines for glass and metal processing. I enjoy precise work, where mistakes are measured in hundredths of a millimetre and the result is something you can hold in your hand.",
   "hero.ctaContact": "Get in touch",
   "hero.ctaExperience": "See my experience",
-  "hero.photoAlt": "Portrait of Dejan Dembicki",
+  "hero.photoAlt": "DD logo: a hex nut on a technical drawing grid",
 
   "about.title": "About me",
   "about.p1": "I am a mechanical technician by training. I have worked as a CNC operator in glass and metal processing: from reading the technical drawing and preparing the program, through setting up the machine and tools, to checking the finished part.",
@@ -85,5 +85,45 @@
   "contact.title": "Contact",
   "contact.lead": "Have a job, a question or an offer? Get in touch, I reply quickly.",
 
-  "footer.built": "Built with VS Code and Claude Code"
+  "footer.built": "Built with VS Code and Claude Code",
+  "footer.legal": "Legal",
+  "footer.privacy": "Privacy",
+  "footer.terms": "Terms of use",
+  "footer.license": "License",
+
+  "legal.back": "← Back to the home page",
+  "legal.updated": "Last updated: 1 October 2026",
+
+  "privacy.metaTitle": "Privacy policy — Dejan Dembicki",
+  "privacy.metaDescription": "How the personal website of Dejan Dembicki handles your data: no cookies, no analytics, no tracking.",
+  "privacy.title": "Privacy policy",
+  "privacy.intro": "This is a personal website. It uses no cookies, no analytics and no advertising, and it never asks you for personal data.",
+  "privacy.storageTitle": "What is stored in your browser",
+  "privacy.storage": "The site remembers your chosen language and theme (light or dark) in your browser's local storage. This stays on your device, is never sent anywhere, and you can delete it at any time by clearing the site data in your browser.",
+  "privacy.thirdPartiesTitle": "Hosting and fonts",
+  "privacy.thirdParties": "The site is hosted on GitHub Pages, and its fonts are loaded from Google Fonts. Like any web server, they receive your IP address and basic browser details when the page loads. How they handle this data is described in the privacy policies of GitHub and Google.",
+  "privacy.contactTitle": "Questions",
+  "privacy.contact": "For any question about privacy, use the contact options on the home page.",
+
+  "terms.metaTitle": "Terms of use — Dejan Dembicki",
+  "terms.metaDescription": "Short terms of use for the personal website of Dejan Dembicki: content, external links and fair use.",
+  "terms.title": "Terms of use",
+  "terms.intro": "By using this website you agree to these short terms.",
+  "terms.contentTitle": "Content",
+  "terms.content": "The site gives general information about me and my work. I try to keep it accurate and up to date, but I cannot guarantee that it is complete or free of errors.",
+  "terms.linksTitle": "External links",
+  "terms.links": "Links to other websites are provided for convenience. I am not responsible for their content or their privacy practices.",
+  "terms.useTitle": "Fair use",
+  "terms.use": "Please do not try to disrupt or misuse the site. Reusing the code is welcome under the conditions described on the License page.",
+  "terms.changesTitle": "Changes",
+  "terms.changes": "These terms may change over time. The date at the top always shows the current version.",
+
+  "license.metaTitle": "License — Dejan Dembicki",
+  "license.metaDescription": "The personal website of Dejan Dembicki is open source under the Apache License 2.0. A short summary of what that means.",
+  "license.title": "License",
+  "license.intro": "The source code and content of this website are licensed under the Apache License, Version 2.0. Copyright 2026 Dejan Dembicki.",
+  "license.summaryTitle": "In short",
+  "license.summary": "You may use, copy, change and share the code, also for commercial purposes, as long as you keep the copyright and license notices and mark the files you changed. The software comes as is, without any warranty.",
+  "license.fullText": "Read the full license text on GitHub →",
+  "license.note": "This summary is only for convenience. The full license text is the one that counts."
 }

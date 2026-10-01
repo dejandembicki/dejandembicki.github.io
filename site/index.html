@@ -7,8 +7,8 @@
   <meta name="description" data-i18n-attr="content:meta.description" content="Dejan Dembicki, mechanical technician and CNC operator working on glass and metal processing. Experience, projects, interests and contact.">
   <meta name="author" content="Dejan Dembicki">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#141412" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f7f9fa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e1418" media="(prefers-color-scheme: dark)">
 
   <!-- SEO: one canonical URL, plus the same page in each language for search engines. -->
   <link rel="canonical" href="https://dejandembicki90-ctrl.github.io/licni-sajt/">
@@ -92,7 +92,11 @@
   <!-- ==================== Navigation ==================== -->
   <header class="nav">
     <div class="container nav__inner">
-      <a href="#top" class="nav__logo" data-i18n-attr="aria-label:nav.home" aria-label="Dejan Dembicki, home">DD<span>.</span></a>
+      <a href="#top" class="nav__logo" data-i18n-attr="aria-label:nav.home" aria-label="Dejan Dembicki, home">
+        <!-- Logo: a hex nut (a nod to machining) with the DD monogram. Same shape as images/favicon.svg. -->
+        <svg class="nav__mark" viewBox="0 0 64 64" width="32" height="32" aria-hidden="true"><path d="M32 2 58 17v30L32 62 6 47V17z"/><text x="32" y="41" text-anchor="middle">DD</text></svg>
+        <span class="nav__name">Dembicki</span>
+      </a>
 
       <nav class="nav__links" id="site-menu" aria-label="Main">
         <a href="#about" data-i18n="nav.about">About</a>
@@ -136,8 +140,8 @@
           </div>
         </div>
         <div class="hero__photo reveal">
-          <!-- EDIT: replace with your own photo (square, ~640×640), e.g. images/profile.jpg -->
-          <img src="images/profile.svg" data-i18n-attr="alt:hero.photoAlt" alt="Portrait of Dejan Dembicki" width="320" height="320" fetchpriority="high" decoding="async">
+          <!-- EDIT: replace with your own photo (square, ~640×640), e.g. images/profile.jpg, and update hero.photoAlt in the locales. -->
+          <img src="images/profile.svg" data-i18n-attr="alt:hero.photoAlt" alt="DD logo: a hex nut on a technical drawing grid" width="320" height="320" fetchpriority="high" decoding="async">
         </div>
       </div>
     </section>
@@ -273,8 +277,13 @@
   </main>
 
   <footer class="footer">
-    <div class="container">
+    <div class="container footer__inner">
       <p>© <span id="current-year">2026</span> Dejan Dembicki · <span data-i18n="footer.built">Built with VS Code and Claude Code</span></p>
+      <nav class="footer__links" data-i18n-attr="aria-label:footer.legal" aria-label="Legal">
+        <a href="privacy.html" data-i18n="footer.privacy">Privacy</a>
+        <a href="terms.html" data-i18n="footer.terms">Terms of use</a>
+        <a href="license.html" data-i18n="footer.license">License</a>
+      </nav>
     </div>
   </footer>
 </body>

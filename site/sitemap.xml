@@ -8,4 +8,16 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://dejandembicki90-ctrl.github.io/licni-sajt/?lang=de"/>
     <changefreq>monthly</changefreq>
   </url>
+  <url>
+    <loc>https://dejandembicki90-ctrl.github.io/licni-sajt/privacy.html</loc>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://dejandembicki90-ctrl.github.io/licni-sajt/terms.html</loc>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://dejandembicki90-ctrl.github.io/licni-sajt/license.html</loc>
+    <changefreq>yearly</changefreq>
+  </url>
 </urlset>

@@ -255,13 +255,72 @@
 .footer {
   padding: 32px 0;
   font-size: 0.9rem;
-  text-align: center;
   color: var(--color-muted);
   border-top: 1px solid var(--color-border);
 }
 
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+}
+
 .footer p {
   margin: 0;
+}
+
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+}
+
+.footer__links a {
+  color: var(--color-muted);
+}
+
+.footer__links a:hover,
+.footer__links a[aria-current="page"] {
+  color: var(--color-accent);
+}
+
+/* ---------- Legal pages (privacy, terms, license) ---------- */
+.legal {
+  max-width: 720px;
+  padding-block: 56px 80px;
+}
+
+.legal__back {
+  display: inline-block;
+  margin-bottom: 28px;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.legal h1 {
+  font-size: clamp(2rem, 5vw, 2.8rem);
+}
+
+.legal__updated {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+.legal h2 {
+  margin-top: 1.6em;
+  font-size: 1.35rem;
+}
+
+.legal__note {
+  margin-top: 2em;
+  padding: 16px 20px;
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  background: var(--color-bg-alt);
+  border-left: 4px solid var(--color-accent);
+  border-radius: 8px;
 }
 
 /* ---------- Responsive ---------- */
@@ -315,5 +374,10 @@
 
   .fun-fact strong {
     font-size: 1.8rem;
+  }
+
+  .footer__inner {
+    flex-direction: column;
+    text-align: center;
   }
 }

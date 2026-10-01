@@ -20,7 +20,7 @@
   "hero.lead": "Radim na CNC mašinama za obradu stakla i metala. Volim precizan posao, gde se greška meri stotim delovima milimetra, a rezultat se drži u ruci.",
   "hero.ctaContact": "Kontaktiraj me",
   "hero.ctaExperience": "Pogledaj iskustvo",
-  "hero.photoAlt": "Fotografija: Dejan Dembicki",
+  "hero.photoAlt": "DD logo: navrtka na mreži tehničkog crteža",
 
   "about.title": "O meni",
   "about.p1": "Po struci sam mašinski tehničar. Radio sam kao CNC operater na obradi stakla i metala: od čitanja tehničkog crteža i pripreme programa, preko podešavanja mašine i alata, do kontrole gotovog komada.",
@@ -85,5 +85,45 @@
   "contact.title": "Kontakt",
   "contact.lead": "Imate posao, pitanje ili ponudu? Javite se, odgovaram brzo.",
 
-  "footer.built": "Napravljeno uz VS Code i Claude Code"
+  "footer.built": "Napravljeno uz VS Code i Claude Code",
+  "footer.legal": "Pravne informacije",
+  "footer.privacy": "Privatnost",
+  "footer.terms": "Uslovi korišćenja",
+  "footer.license": "Licenca",
+
+  "legal.back": "← Nazad na početnu",
+  "legal.updated": "Poslednja izmena: 1. oktobar 2026.",
+
+  "privacy.metaTitle": "Politika privatnosti — Dejan Dembicki",
+  "privacy.metaDescription": "Kako lični sajt Dejana Dembickog postupa sa vašim podacima: bez kolačića, bez analitike, bez praćenja.",
+  "privacy.title": "Politika privatnosti",
+  "privacy.intro": "Ovo je lični sajt. Ne koristi kolačiće, analitiku ni reklame, i nikada ne traži vaše lične podatke.",
+  "privacy.storageTitle": "Šta se čuva u vašem pregledaču",
+  "privacy.storage": "Sajt pamti izabrani jezik i temu (svetla ili tamna) u lokalnoj memoriji vašeg pregledača. To ostaje na vašem uređaju, nikuda se ne šalje i možete ga obrisati u svakom trenutku brisanjem podataka sajta u pregledaču.",
+  "privacy.thirdPartiesTitle": "Hosting i fontovi",
+  "privacy.thirdParties": "Sajt se nalazi na GitHub Pages, a fontovi se učitavaju sa Google Fonts. Kao i svaki veb-server, oni pri učitavanju stranice dobijaju vašu IP adresu i osnovne podatke o pregledaču. Kako postupaju sa tim podacima opisano je u politikama privatnosti kompanija GitHub i Google.",
+  "privacy.contactTitle": "Pitanja",
+  "privacy.contact": "Za sva pitanja o privatnosti koristite kontakt sa početne stranice.",
+
+  "terms.metaTitle": "Uslovi korišćenja — Dejan Dembicki",
+  "terms.metaDescription": "Kratki uslovi korišćenja ličnog sajta Dejana Dembickog: sadržaj, spoljni linkovi i pravilna upotreba.",
+  "terms.title": "Uslovi korišćenja",
+  "terms.intro": "Korišćenjem ovog sajta prihvatate ove kratke uslove.",
+  "terms.contentTitle": "Sadržaj",
+  "terms.content": "Sajt daje opšte informacije o meni i mom radu. Trudim se da budu tačne i ažurne, ali ne mogu da garantujem da su potpune i bez grešaka.",
+  "terms.linksTitle": "Spoljni linkovi",
+  "terms.links": "Linkovi ka drugim sajtovima postoje radi lakšeg snalaženja. Nisam odgovoran za njihov sadržaj niti za to kako postupaju sa podacima.",
+  "terms.useTitle": "Pravilna upotreba",
+  "terms.use": "Molim vas da ne pokušavate da ometate rad sajta ili da ga zloupotrebite. Ponovna upotreba koda je dobrodošla pod uslovima opisanim na stranici Licenca.",
+  "terms.changesTitle": "Izmene",
+  "terms.changes": "Ovi uslovi se s vremenom mogu menjati. Datum na vrhu uvek pokazuje važeću verziju.",
+
+  "license.metaTitle": "Licenca — Dejan Dembicki",
+  "license.metaDescription": "Lični sajt Dejana Dembickog je otvorenog koda pod licencom Apache 2.0. Kratko objašnjenje šta to znači.",
+  "license.title": "Licenca",
+  "license.intro": "Izvorni kod i sadržaj ovog sajta objavljeni su pod licencom Apache License, verzija 2.0. Autorska prava 2026 Dejan Dembicki.",
+  "license.summaryTitle": "Ukratko",
+  "license.summary": "Kod smete da koristite, kopirate, menjate i delite, i u komercijalne svrhe, pod uslovom da zadržite napomene o autorskim pravima i licenci i označite fajlove koje ste izmenili. Softver se daje takav kakav je, bez ikakve garancije.",
+  "license.fullText": "Pročitajte ceo tekst licence na GitHub-u →",
+  "license.note": "Ovaj sažetak služi samo radi lakšeg razumevanja. Važeći je samo pun tekst licence."
 }

@@ -1,10 +1,11 @@
 // Translation checks: every language has every text, and the HTML only uses keys that exist.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { LANGUAGES, readLocale, readMarkup, decodeEntities, normalizeSpace } from './helpers.mjs';
+import { LANGUAGES, PAGES, readLocale, readMarkup, decodeEntities, normalizeSpace } from './helpers.mjs';
 import { normalizeLanguage, SUPPORTED_LANGUAGES } from '../site/js/modules/i18n.js';
 
-const html = readMarkup('index.html');
+// All pages share one set of locale files, so the checks below look at every page together.
+const html = PAGES.map((page) => readMarkup(page)).join('\n');
 const locales = Object.fromEntries(LANGUAGES.map((lang) => [lang, readLocale(lang)]));
 
 const textKeys = [...html.matchAll(/data-i18n="([^"]+)"/g)].map((m) => m[1]);
@@ -32,19 +33,19 @@ test('no translation is empty', () => {
   }
 });
 
-test('every key used in index.html exists in the locales', () => {
+test('every key used in the pages exists in the locales', () => {
   for (const key of usedKeys) {
-    assert.ok(key in locales.en, `index.html uses unknown key "${key}"`);
+    assert.ok(key in locales.en, `a page uses unknown key "${key}"`);
   }
 });
 
-test('every locale key is used in index.html', () => {
+test('every locale key is used in a page', () => {
   for (const key of Object.keys(locales.en)) {
     assert.ok(usedKeys.has(key), `en.json has unused key "${key}"`);
   }
 });
 
-test('the English text in index.html matches en.json', () => {
+test('the English text in the pages matches en.json', () => {
   // Matches simple elements such as <p data-i18n="key">text</p>.
   for (const [, key, raw] of html.matchAll(/data-i18n="([^"]+)"[^>]*>([^<]*)</g)) {
     assert.equal(normalizeSpace(decodeEntities(raw)), locales.en[key], `text for "${key}" differs`);

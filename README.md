@@ -10,6 +10,7 @@ It covers my work history, projects, hobbies, a few fun facts and contact detail
 - Light and dark theme (follows the system setting, can be switched manually)
 - Three languages: English, Serbian and German
 - SEO-ready: meta and Open Graph tags, structured data, sitemap, robots.txt
+- Short privacy policy, terms of use and license pages, in all three languages
 - Automatically tested and published to GitHub Pages on every push to `main`
 
 Why the project exists and how it was made is described in [PURPOSE.md](PURPOSE.md).
@@ -20,12 +21,13 @@ How the code is organised, and why it is built this way, is described in [docs/A
 ```
 site/                    ← everything that gets published
   index.html             ← page content (English by default)
+  privacy.html, terms.html, license.html ← short legal pages, linked from the footer
   404.html               ← "page not found" page
   css/                   ← tokens → base → components → sections
   js/main.js             ← entry point that wires up the modules
   js/modules/            ← theme, navigation, reveal animation, i18n
   locales/               ← en.json, sr.json, de.json (translated texts)
-  images/                ← photo, icons, link preview image
+  images/                ← logo, hero artwork, icons, link preview image
   robots.txt, sitemap.xml
 tests/                   ← automated checks (Node's built-in test runner)
 docs/ARCHITECTURE.md     ← where, how and why

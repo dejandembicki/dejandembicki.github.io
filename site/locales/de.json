@@ -20,7 +20,7 @@
   "hero.lead": "Ich bediene CNC-Maschinen für die Glas- und Metallbearbeitung. Ich mag präzise Arbeit, bei der Fehler in Hundertstelmillimetern gemessen werden und das Ergebnis etwas ist, das man in der Hand halten kann.",
   "hero.ctaContact": "Kontakt aufnehmen",
   "hero.ctaExperience": "Meine Erfahrung",
-  "hero.photoAlt": "Porträt von Dejan Dembicki",
+  "hero.photoAlt": "DD-Logo: eine Sechskantmutter auf technischem Zeichenraster",
 
   "about.title": "Über mich",
   "about.p1": "Ich bin gelernter Maschinenbautechniker. Als CNC-Bediener habe ich in der Glas- und Metallbearbeitung gearbeitet: vom Lesen der technischen Zeichnung und der Vorbereitung des Programms über das Einrichten von Maschine und Werkzeugen bis zur Kontrolle des fertigen Teils.",
@@ -85,5 +85,45 @@
   "contact.title": "Kontakt",
   "contact.lead": "Sie haben einen Job, eine Frage oder ein Angebot? Melden Sie sich, ich antworte schnell.",
 
-  "footer.built": "Erstellt mit VS Code und Claude Code"
+  "footer.built": "Erstellt mit VS Code und Claude Code",
+  "footer.legal": "Rechtliches",
+  "footer.privacy": "Datenschutz",
+  "footer.terms": "Nutzungsbedingungen",
+  "footer.license": "Lizenz",
+
+  "legal.back": "← Zurück zur Startseite",
+  "legal.updated": "Zuletzt aktualisiert: 1. Oktober 2026",
+
+  "privacy.metaTitle": "Datenschutzerklärung — Dejan Dembicki",
+  "privacy.metaDescription": "Wie die persönliche Website von Dejan Dembicki mit Ihren Daten umgeht: keine Cookies, keine Analyse, kein Tracking.",
+  "privacy.title": "Datenschutzerklärung",
+  "privacy.intro": "Dies ist eine persönliche Website. Sie verwendet keine Cookies, keine Analysewerkzeuge und keine Werbung und fragt nie nach persönlichen Daten.",
+  "privacy.storageTitle": "Was in Ihrem Browser gespeichert wird",
+  "privacy.storage": "Die Website merkt sich die gewählte Sprache und das Farbschema (hell oder dunkel) im lokalen Speicher Ihres Browsers. Diese Angaben bleiben auf Ihrem Gerät, werden nirgendwohin gesendet und lassen sich jederzeit löschen, indem Sie die Websitedaten im Browser entfernen.",
+  "privacy.thirdPartiesTitle": "Hosting und Schriftarten",
+  "privacy.thirdParties": "Die Website wird über GitHub Pages bereitgestellt, die Schriftarten werden von Google Fonts geladen. Wie jeder Webserver erhalten diese Dienste beim Laden der Seite Ihre IP-Adresse und grundlegende Browserangaben. Wie sie damit umgehen, beschreiben die Datenschutzerklärungen von GitHub und Google.",
+  "privacy.contactTitle": "Fragen",
+  "privacy.contact": "Bei Fragen zum Datenschutz nutzen Sie bitte die Kontaktmöglichkeiten auf der Startseite.",
+
+  "terms.metaTitle": "Nutzungsbedingungen — Dejan Dembicki",
+  "terms.metaDescription": "Kurze Nutzungsbedingungen der persönlichen Website von Dejan Dembicki: Inhalte, externe Links und faire Nutzung.",
+  "terms.title": "Nutzungsbedingungen",
+  "terms.intro": "Mit der Nutzung dieser Website stimmen Sie diesen kurzen Bedingungen zu.",
+  "terms.contentTitle": "Inhalte",
+  "terms.content": "Die Website bietet allgemeine Informationen über mich und meine Arbeit. Ich bemühe mich um aktuelle und richtige Angaben, kann aber nicht garantieren, dass sie vollständig und fehlerfrei sind.",
+  "terms.linksTitle": "Externe Links",
+  "terms.links": "Links zu anderen Websites dienen nur der Bequemlichkeit. Für deren Inhalte und Datenschutz bin ich nicht verantwortlich.",
+  "terms.useTitle": "Faire Nutzung",
+  "terms.use": "Bitte versuchen Sie nicht, die Website zu stören oder zu missbrauchen. Die Weiterverwendung des Codes ist zu den auf der Seite „Lizenz“ beschriebenen Bedingungen willkommen.",
+  "terms.changesTitle": "Änderungen",
+  "terms.changes": "Diese Bedingungen können sich mit der Zeit ändern. Das Datum oben zeigt immer die aktuelle Fassung.",
+
+  "license.metaTitle": "Lizenz — Dejan Dembicki",
+  "license.metaDescription": "Die persönliche Website von Dejan Dembicki ist Open Source unter der Apache License 2.0. Eine kurze Zusammenfassung.",
+  "license.title": "Lizenz",
+  "license.intro": "Quellcode und Inhalte dieser Website stehen unter der Apache License, Version 2.0. Copyright 2026 Dejan Dembicki.",
+  "license.summaryTitle": "Kurz gesagt",
+  "license.summary": "Sie dürfen den Code nutzen, kopieren, ändern und weitergeben, auch kommerziell, sofern Sie die Urheberrechts- und Lizenzhinweise beibehalten und geänderte Dateien kennzeichnen. Die Software wird so bereitgestellt, wie sie ist, ohne jede Gewährleistung.",
+  "license.fullText": "Vollständigen Lizenztext auf GitHub lesen →",
+  "license.note": "Diese Zusammenfassung dient nur der Orientierung. Maßgeblich ist allein der vollständige Lizenztext."
 }

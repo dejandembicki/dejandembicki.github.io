@@ -48,6 +48,9 @@ to see the site as it was at that point.
    sitemap, robots.txt, a 404 page, and faster font and script loading.
 5. **Automated checks.** Tests run on GitHub before every deploy; a failing test blocks publishing.
 6. **Documentation.** README, PURPOSE, architecture notes and the Apache 2.0 license.
+7. **Design feedback.** After testing: a teal/blue colour scheme instead of orange, a
+   hex-nut “DD” logo with matching hero artwork and icons, and short privacy, terms and
+   license pages linked from the footer.
 
 ## What the project shows
 

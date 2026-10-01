@@ -19,14 +19,49 @@
 }
 
 .nav__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-family: var(--font-display);
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: var(--color-text);
 }
 
-.nav__logo span {
-  color: var(--color-accent);
+/* The hex-nut logo mark: drawn in the accent colour, so it follows the theme. */
+.nav__mark {
+  flex-shrink: 0;
+}
+
+.nav__mark path {
+  fill: var(--color-accent);
+  transform-origin: 32px 32px;
+  transition: transform 0.4s ease;
+}
+
+.nav__mark text {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  fill: var(--color-on-accent);
+}
+
+/* On hover the nut turns one flat (60°), like being tightened; the letters stay put. */
+.nav__logo:hover .nav__mark path {
+  transform: rotate(60deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav__logo:hover .nav__mark path {
+    transform: none;
+  }
+}
+
+/* On the narrowest phones only the mark is shown, to leave room for the buttons. */
+@media (max-width: 420px) {
+  .nav__name {
+    display: none;
+  }
 }
 
 .nav__logo:hover {

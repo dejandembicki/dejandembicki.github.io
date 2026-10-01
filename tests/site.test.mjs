@@ -1,12 +1,13 @@
 // Structure, links and SEO checks for the published files.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readMarkup, readSiteFile, siteFileExists } from './helpers.mjs';
+import { PAGES, readMarkup, readSiteFile, siteFileExists } from './helpers.mjs';
 
 const html = readMarkup('index.html');
 
-test('every local file referenced by index.html exists', () => {
-  const references = [...html.matchAll(/(?:href|src)="([^"]+)"/g)]
+test('every local file referenced by a page exists', () => {
+  const pages = PAGES.map((page) => readMarkup(page)).join('\n');
+  const references = [...pages.matchAll(/(?:href|src)="([^"]+)"/g)]
     .map((m) => m[1])
     .filter((url) => !/^(https?:|mailto:|tel:|#|data:)/.test(url));
 
@@ -21,11 +22,6 @@ test('every in-page link points to an existing section', () => {
   for (const [, target] of html.matchAll(/href="#([^"]+)"/g)) {
     assert.ok(ids.has(target), `#${target} has no matching id`);
   }
-});
-
-test('ids are unique', () => {
-  const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map((m) => m[1]);
-  assert.equal(new Set(ids).size, ids.length);
 });
 
 test('images have alt text and dimensions', () => {
@@ -65,4 +61,35 @@ test('robots.txt points to the sitemap, and the sitemap lists the canonical URL'
 
 test('a custom 404 page exists and is not indexed', () => {
   assert.match(readSiteFile('404.html'), /<meta name="robots" content="noindex">/);
+});
+
+test('ids are unique on every page', () => {
+  for (const page of PAGES) {
+    const ids = [...readMarkup(page).matchAll(/\sid="([^"]+)"/g)].map((m) => m[1]);
+    assert.equal(new Set(ids).size, ids.length, `duplicate id in ${page}`);
+  }
+});
+
+test('the legal pages are linked from every page footer and listed in the sitemap', () => {
+  const sitemap = readSiteFile('sitemap.xml');
+  const legalPages = PAGES.filter((page) => page !== 'index.html');
+  for (const page of PAGES) {
+    const footer = readMarkup(page).match(/<footer[\s\S]*<\/footer>/)?.[0] ?? '';
+    for (const legal of legalPages) {
+      assert.ok(footer.includes(`href="${legal}"`), `${page} footer does not link to ${legal}`);
+    }
+  }
+  for (const legal of legalPages) {
+    assert.ok(sitemap.includes(`/${legal}</loc>`), `${legal} is missing from the sitemap`);
+  }
+});
+
+test('each legal page has a title, description, canonical URL and one <h1>', () => {
+  for (const page of PAGES.filter((p) => p !== 'index.html')) {
+    const markup = readMarkup(page);
+    assert.match(markup, /<title[^>]*>[^<]{10,70}<\/title>/, `${page}: title should be 10–70 characters`);
+    assert.match(markup, /<meta name="description"[^>]*content="[^"]{50,160}"/, `${page}: description should be 50–160 characters`);
+    assert.match(markup, new RegExp(`<link rel="canonical" href="https://[^"]+/${page}"`), `${page}: canonical URL`);
+    assert.equal((markup.match(/<h1\b/g) ?? []).length, 1, `${page}: exactly one <h1>`);
+  }
 });

@@ -5,6 +5,8 @@ import path from 'node:path';
 
 export const SITE_DIR = fileURLToPath(new URL('../site/', import.meta.url));
 export const LANGUAGES = ['en', 'sr', 'de'];
+// Every HTML page that uses the shared translations and layout (404.html is standalone).
+export const PAGES = ['index.html', 'privacy.html', 'terms.html', 'license.html'];
 
 export function readSiteFile(relativePath) {
   return readFileSync(path.join(SITE_DIR, relativePath), 'utf8');

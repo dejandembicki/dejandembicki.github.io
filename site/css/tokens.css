@@ -4,14 +4,14 @@
  * a second set of values for the same names.
  */
 :root {
-  --color-bg: #fbfaf7;
-  --color-bg-alt: #f2efe8;
+  --color-bg: #f7f9fa;
+  --color-bg-alt: #edf2f4;
   --color-surface: #ffffff;
-  --color-text: #1c1b19;
-  --color-muted: #5f5b53;
-  --color-border: #e3ded3;
-  --color-accent: #c2410c;
-  --color-accent-soft: #fde7da;
+  --color-text: #14202b;
+  --color-muted: #51606d;
+  --color-border: #dbe3e8;
+  --color-accent: #0f766e;
+  --color-accent-soft: #d5f0ec;
   --color-on-accent: #ffffff;
 
   --shadow: 0 1px 2px rgb(0 0 0 / 4%), 0 8px 24px rgb(0 0 0 / 6%);
@@ -30,15 +30,15 @@
 /* Dark values, applied when the OS prefers dark and the user has not forced light... */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --color-bg: #141412;
-    --color-bg-alt: #1b1a17;
-    --color-surface: #211f1c;
-    --color-text: #f1eee8;
-    --color-muted: #a8a296;
-    --color-border: #34312b;
-    --color-accent: #fb923c;
-    --color-accent-soft: #3a2518;
-    --color-on-accent: #1c1b19;
+    --color-bg: #0e1418;
+    --color-bg-alt: #141c21;
+    --color-surface: #19232a;
+    --color-text: #e8eef2;
+    --color-muted: #9aa9b4;
+    --color-border: #2a3740;
+    --color-accent: #2dd4bf;
+    --color-accent-soft: #123532;
+    --color-on-accent: #0b1a1c;
     --shadow: 0 1px 2px rgb(0 0 0 / 30%), 0 8px 24px rgb(0 0 0 / 35%);
     color-scheme: dark;
   }
@@ -46,15 +46,15 @@
 
 /* ...or when the user has explicitly chosen dark with the theme toggle. */
 :root[data-theme="dark"] {
-  --color-bg: #141412;
-  --color-bg-alt: #1b1a17;
-  --color-surface: #211f1c;
-  --color-text: #f1eee8;
-  --color-muted: #a8a296;
-  --color-border: #34312b;
-  --color-accent: #fb923c;
-  --color-accent-soft: #3a2518;
-  --color-on-accent: #1c1b19;
+  --color-bg: #0e1418;
+  --color-bg-alt: #141c21;
+  --color-surface: #19232a;
+  --color-text: #e8eef2;
+  --color-muted: #9aa9b4;
+  --color-border: #2a3740;
+  --color-accent: #2dd4bf;
+  --color-accent-soft: #123532;
+  --color-on-accent: #0b1a1c;
   --shadow: 0 1px 2px rgb(0 0 0 / 30%), 0 8px 24px rgb(0 0 0 / 35%);
   color-scheme: dark;
 }

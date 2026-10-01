@@ -19,14 +19,22 @@ A short tour of the building blocks of the site. For each one: **where** it live
 - **Why:** semantic tags help screen readers and search engines understand the page.
   One page with anchors keeps navigation instant, with no page reloads.
 
+### Legal pages (`privacy.html`, `terms.html`, `license.html`)
+
+- **How:** three short pages that reuse the same header, footer, styles and scripts as
+  the home page. Their texts live in the same locale files (keys `privacy.*`, `terms.*`,
+  `license.*`), and the footer of every page links to all three.
+- **Why:** the home page stays a single page, while the legal texts are kept apart where
+  visitors expect them. Sharing one set of locale files means the tests check them too.
+
 ## 3. Styles in four layers (`site/css/`)
 
 | File | Contains |
 |------|----------|
-| `tokens.css` | All colours, fonts, radii and shadows as CSS variables, for light and dark |
+| `tokens.css` | All colours, fonts, radii and shadows as CSS variables, for light and dark (a teal/blue accent) |
 | `base.css` | Reset, typography, the page container, the scroll animation |
 | `components.css` | Reusable pieces: navigation, buttons, tags, cards, section headings, language switch |
-| `sections.css` | Layout of each page section: hero, about, timeline, fun facts, contact, footer |
+| `sections.css` | Layout of each page section: hero, about, timeline, fun facts, contact, footer, legal pages |
 
 - **How:** the files are loaded in this order, from general to specific. Components
   only use variables such as `var(--color-accent)`, never raw colours.
@@ -117,7 +125,9 @@ off for visitors who prefer reduced motion.
     `en.json`, and browser language codes map correctly.
   - `site.test.mjs`: all referenced files exist, in-page links lead somewhere, ids
     are unique, images have alt text and dimensions, the SEO tags are present, the
-    JSON-LD is valid, and the sitemap and 404 page are in place.
+    JSON-LD is valid, and the sitemap and 404 page are in place. The legal pages are linked
+    from every footer, listed in the sitemap and have their own title, description and canonical URL.
+  - Both test files check every page listed in `PAGES` (`tests/helpers.mjs`).
 - **Why:** these are the mistakes that are easy to make by hand (a forgotten
   translation, a renamed file, a broken link) and hard to notice by eye.
 
